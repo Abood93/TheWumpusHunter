@@ -2,8 +2,10 @@
 class Cave
 {
 public:
-	int passageCount = 3;
+	bool addPassage(int);
+	int  getPassage(int);
+	int  getPassCount();
 private:
-
+	int passageCount = 0;
+	int cavePassages[3];
 };
-
