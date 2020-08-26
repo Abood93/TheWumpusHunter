@@ -6,8 +6,7 @@
 using namespace std;
 
 int main()
-{
-
+{  
     Cavern theCaves;
     theCaves.printCavern();
 }
