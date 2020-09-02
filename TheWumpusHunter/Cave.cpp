@@ -5,7 +5,7 @@
 bool Cave::addPassage(int adjacentCave)
 {
 	bool passageAdded = false;
-	if (adjacentCave < cCaveCount && passageCount < cPassPerCave)
+	if (adjacentCave < CAVE_COUNT && passageCount < PASS_PER_CAVE)
 	{
 		cavePassages[passageCount] = adjacentCave;
 		passageCount++;
@@ -15,6 +15,7 @@ bool Cave::addPassage(int adjacentCave)
 }
 int Cave::getPassage(int whichPassage)
 {
+	int passage= RETURN_ERROR;
 	if (whichPassage <= passageCount && whichPassage >= 0)
 		passage = cavePassages[whichPassage];
 	return passage;
@@ -96,4 +97,28 @@ bool Cave::hasPlayer()
 		return true;
 	else
 		return false;
+}
+void Cave::deleteBat()
+{
+	has_Bat = false;
+}
+
+void Cave::deletePit()
+{
+	has_Pit= false;
+}
+void Cave::deleteWumpus()
+{
+	has_Wumpus = false;
+}
+void Cave::deletePlayer()
+{
+	has_Player = false;
+}
+void Cave::clearCave()
+{
+	deleteBat();
+	deletePit();
+	deleteWumpus();
+	deletePlayer();
 }
