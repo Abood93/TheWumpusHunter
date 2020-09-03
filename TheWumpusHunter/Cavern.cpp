@@ -54,5 +54,6 @@ Cavern::Cavern()
 				exit(-1);
 			}
 		}
+
 	newGame();
 }
