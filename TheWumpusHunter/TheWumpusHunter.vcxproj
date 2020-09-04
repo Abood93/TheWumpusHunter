@@ -149,11 +149,13 @@
   <ItemGroup>
     <ClCompile Include="Cave.cpp" />
     <ClCompile Include="Cavern.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="TheWumpusHunter.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Cave.h" />
     <ClInclude Include="Cavern.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="TheWumpusHunter.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

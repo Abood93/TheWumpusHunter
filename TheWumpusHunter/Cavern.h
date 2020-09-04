@@ -1,7 +1,7 @@
 #pragma once
-#ifndef MI1
-#define MI1
+
 #include"Cave.h"
+#include"Player.h"
 class Cavern
 {
 public:
@@ -10,5 +10,5 @@ public:
 	Cavern();
 private:
 	Cave theWumpusCaves[CAVE_COUNT];
+	Player thePlayer;
 };
-#endif

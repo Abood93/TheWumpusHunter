@@ -4,39 +4,70 @@
 #include"Cave.h"
 #include"TheWumpusHunter.h"
 #include"Cavern.h"
+#include"Player.h"
 
 using namespace std;
 
 void Cavern::printCavern()
 {
+	thePlayer.showText("Listing the cavern\n");
 	int i, j;  
 	for (i = 0; i < CAVE_COUNT; i++)
 	{
 		cout << "Cave number: " << i << " connected to the following caves: ";
 		for (j = 0; j < theWumpusCaves[i].getPassageCount(); j++) 
 			cout << " " << theWumpusCaves[i].getPassage(j);
-		cout << " ." << endl;
+		cout << ".";
 		if (theWumpusCaves[i].hasBat())
-			cout << " B " << endl;
+			cout << " B ";
 		if (theWumpusCaves[i].hasPit())
-			cout << " * " << endl;
+			cout << " * " ;
 		if (theWumpusCaves[i].hasWumpus())
-			cout << " W " << endl;
+			cout << " W ";
 		if (theWumpusCaves[i].hasPlayer())
-			cout << " P " << endl;
+			cout << " P ";
+		cout << endl;
 	}
 
 }
 
 void Cavern::newGame()
 {
-	for(int i=0;i<CAVE_COUNT;i++)
+	int i;
+	int whichCave;
+	bool objectAdded;
+	for( i=0;i<CAVE_COUNT;i++)
 		theWumpusCaves[i].clearCave();
-	theWumpusCaves[0].getPassage(0);      
 
-	srand(time(0));
-	for (int i = 0; i < PASS_PER_CAVE; i++)
-		cout << 1 + (rand() % 20) << "  ";
+	//add ....bat,pit,wumpus,player.
+	theWumpusCaves[0].addPlayer();
+	for (i = 0; i < BAT_COUNT; i++)
+	{
+		objectAdded = false;
+		while (!objectAdded)
+		{
+		whichCave = (rand() % 20);
+		objectAdded = theWumpusCaves[whichCave].addBat();
+		}
+	}
+	for (i = 0; i < PIT_COUNT; i++)
+	{
+		objectAdded = false;
+		while (!objectAdded)
+		{
+			whichCave = (rand() % 20);
+			objectAdded = theWumpusCaves[whichCave].addPit();
+		}
+	}
+	for (i = 0; i < WUMPUS_COUNT; i++)
+	{
+		objectAdded = false;
+		while (!objectAdded)
+		{
+			whichCave = (rand() % 20);
+			objectAdded = theWumpusCaves[whichCave].addWumpus();
+		}
+	}
 }
 
 Cavern::Cavern()

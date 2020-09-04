@@ -1,6 +1,5 @@
 #pragma once
-#ifndef MI2
-#define MI2
+
 #include"TheWumpusHunter.h"
 
 class Cave
@@ -25,10 +24,8 @@ public:
 private:
 	int passageCount = 0;
 	int cavePassages[PASS_PER_CAVE];
-	bool has_Bat;
-	bool has_Pit;
-	bool has_Wumpus;
-	bool has_Player;
+	bool has_Bat=false;
+	bool has_Pit=false;
+	bool has_Wumpus = false;
+	bool has_Player = false;
 };
-
-#endif

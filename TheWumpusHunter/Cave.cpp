@@ -29,7 +29,7 @@ int Cave::getPassageCount() {
 //mutator
 bool Cave::addBat()
 {
-	if (has_Bat)
+	if (has_Bat || has_Wumpus ||has_Player)
 		return false;
 	else
 	{
@@ -39,7 +39,7 @@ bool Cave::addBat()
 }
 bool Cave::addPit()
 {
-	if (has_Pit)
+	if (has_Pit || has_Wumpus || has_Player)
 		return false;
 	else
 	{
@@ -49,7 +49,7 @@ bool Cave::addPit()
 }
 bool Cave::addWumpus()
 {
-	if (has_Wumpus)
+	if (has_Wumpus || has_Bat || has_Player||has_Pit)
 		return false;
 	else
 	{
@@ -59,7 +59,7 @@ bool Cave::addWumpus()
 }
 bool Cave::addPlayer()
 {
-	if (has_Player)
+	if (has_Player || has_Wumpus || has_Bat||has_Pit)
 		return false;
 	else
 	{
