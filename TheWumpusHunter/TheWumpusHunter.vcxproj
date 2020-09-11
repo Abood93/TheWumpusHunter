@@ -155,6 +155,7 @@
   <ItemGroup>
     <ClInclude Include="Cave.h" />
     <ClInclude Include="Cavern.h" />
+    <ClInclude Include="textMessage.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="TheWumpusHunter.h" />
   </ItemGroup>

@@ -5,28 +5,29 @@
 #include"TheWumpusHunter.h"
 #include"Cavern.h"
 #include"Player.h"
+#include"textMessage.h"
 
 using namespace std;
 
 void Cavern::printCavern()
 {
-	thePlayer.showText("Listing the cavern\n");
+	thePlayer.showText("\n" );
 	int i, j;  
 	for (i = 0; i < CAVE_COUNT; i++)
 	{
-		cout << "Cave number: " << i << " connected to the following caves: ";
+		outText<< "Cave number: " << i << " connected to the following caves: ";
 		for (j = 0; j < theWumpusCaves[i].getPassageCount(); j++) 
-			cout << " " << theWumpusCaves[i].getPassage(j);
-		cout << ".";
+			outText << " " << theWumpusCaves[i].getPassage(j);
+		outText << ".";
 		if (theWumpusCaves[i].hasBat())
-			cout << " B ";
+			outText << " B ";
 		if (theWumpusCaves[i].hasPit())
-			cout << " * " ;
+			outText << " * " ;
 		if (theWumpusCaves[i].hasWumpus())
-			cout << " W ";
+			outText << " W ";
 		if (theWumpusCaves[i].hasPlayer())
-			cout << " P ";
-		cout << endl;
+			outText << " P ";
+		outText << endl;
 	}
 
 }

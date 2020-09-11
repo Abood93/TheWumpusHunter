@@ -2,6 +2,9 @@
 #include "Cave.h"
 #include "Cavern.h"
 #include"TheWumpusHunter.h"
+#include"Player.h"
+#include"textMessage.h"
+
 bool Cave::addPassage(int adjacentCave)
 {
 	bool passageAdded = false;

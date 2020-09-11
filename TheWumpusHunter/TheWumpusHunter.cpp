@@ -3,6 +3,7 @@
 #include"Cave.h"
 #include"TheWumpusHunter.h"
 #include"Player.h"
+#include"textMessage.h"
 
 using namespace std;
 
