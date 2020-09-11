@@ -11,7 +11,7 @@ using namespace std;
 
 void Cavern::printCavern()
 {
-	thePlayer.showText("\n" );
+	thePlayer.showText("\n");
 	int i, j;  
 	for (i = 0; i < CAVE_COUNT; i++)
 	{
