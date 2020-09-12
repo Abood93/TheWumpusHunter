@@ -1,4 +1,5 @@
 #include<iostream>
+#include<sstream>
 #include <cstdlib>
 #include<ctime>
 #include"Cave.h"
@@ -9,27 +10,28 @@
 
 using namespace std;
 
+
 void Cavern::printCavern()
 {
-	thePlayer.showText("\n");
+	ostringstream outText;
 	int i, j;  
 	for (i = 0; i < CAVE_COUNT; i++)
 	{
-		outText<< "Cave number: " << i << " connected to the following caves: ";
+		outText<< textMessage[S0_CAVENUM] << i << textMessage[S1_ADJCAVE];
 		for (j = 0; j < theWumpusCaves[i].getPassageCount(); j++) 
 			outText << " " << theWumpusCaves[i].getPassage(j);
 		outText << ".";
 		if (theWumpusCaves[i].hasBat())
-			outText << " B ";
+			outText << textMessage[S2_BAT];
 		if (theWumpusCaves[i].hasPit())
-			outText << " * " ;
+			outText << textMessage[S3_PIT];
 		if (theWumpusCaves[i].hasWumpus())
-			outText << " W ";
+			outText << textMessage[S4_WUMPUS];
 		if (theWumpusCaves[i].hasPlayer())
-			outText << " P ";
+			outText << textMessage[S5_PLAYER];
 		outText << endl;
 	}
-
+	thePlayer.showText(outText);
 }
 
 void Cavern::newGame()

@@ -1,4 +1,5 @@
 #include<iostream>
+#include<sstream>
 #include"Player.h"
 #include"TheWumpusHunter.h"
 #include"textMessage.h"
@@ -6,7 +7,11 @@
 #include"Cavern.h"
 using namespace std;
 
-void Player::showText(string messageText)
+//void Player::showText(string messageText)
+//{
+//	cout << messageText<< endl;
+//}
+void Player::showText(const ostringstream& outText)
 {
-	cout << messageText<< endl;
+	showText(outText.str());
 }
