@@ -7,10 +7,10 @@
 #include"Cavern.h"
 using namespace std;
 
-//void Player::showText(string messageText)
-//{
-//	cout << messageText<< endl;
-//}
+void Player::showText(string messageText)
+{
+	cout << messageText<< endl;
+}
 void Player::showText(const ostringstream& outText)
 {
 	showText(outText.str());
