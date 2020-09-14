@@ -8,6 +8,7 @@ class Cavern
 public:
 	void newGame();
 	void printCavern();
+	void playGame();
 	Cavern();
 private:
 	Cave theWumpusCaves[CAVE_COUNT];

@@ -11,7 +11,7 @@ using namespace std;
 int main()
 {  
     Cavern theCaves;
-    theCaves.printCavern();
+    theCaves.playGame();
 }
 #else //UNIT_TESTS defined
 #include"UnitTests.h"

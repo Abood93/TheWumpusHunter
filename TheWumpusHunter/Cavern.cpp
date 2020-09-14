@@ -72,6 +72,26 @@ void Cavern::newGame()
 		}
 	}
 }
+void Cavern::playGame()
+{
+
+	bool playMore = true;
+
+		while (playMore)
+		{
+			newGame();
+				bool playerAlive = true;
+			bool wumpusAlive = true;
+				while (playerAlive && wumpusAlive)
+				{
+					//All of the logic for playing the game goes here
+					//Use this for the moment
+					printCavern();
+						wumpusAlive = false;
+				}
+				playMore = false;
+		}
+}
 
 Cavern::Cavern()
 {

@@ -17,3 +17,20 @@ const string textMessage[] =
 	/*S4_WUMPUS*/       " W ",
 	/*S5_PLAYER*/		" P "
 };
+
+constexpr int C0_NO = 0;
+constexpr int C1_NO = 1;
+constexpr int C2_YES = 2;
+constexpr int C3_YES = 3;
+constexpr int C4_QUIT = 4;
+constexpr int C5_QUIT = 5;
+
+const char playerChoice[] =
+{
+	/*C0_NO*/	'N',
+	/*C1_NO*/	'n',
+	/*C2_YES*/  'Y',
+	/*C3_YES*/  'y',
+	/*C4_QUIT*/ 'Q',
+	/*C5_QUIT*/ 'q'
+};
