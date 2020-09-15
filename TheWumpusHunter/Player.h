@@ -7,6 +7,7 @@ class Player
 public:
 	 void showText(const string);
 	 void showText(const ostringstream&);
+	 bool keepPlaying();
 private:
 
 };

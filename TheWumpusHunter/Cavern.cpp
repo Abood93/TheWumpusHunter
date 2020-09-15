@@ -81,7 +81,7 @@ void Cavern::playGame()
 		{
 			newGame();
 				bool playerAlive = true;
-			bool wumpusAlive = true;
+				bool wumpusAlive = true;
 				while (playerAlive && wumpusAlive)
 				{
 					//All of the logic for playing the game goes here
