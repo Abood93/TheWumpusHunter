@@ -8,6 +8,7 @@ public:
 	 void showText(const string);
 	 void showText(const ostringstream&);
 	 bool keepPlaying();
+	 bool getChoice(char& choice);
 private:
 
 };

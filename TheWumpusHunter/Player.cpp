@@ -19,16 +19,19 @@ bool Player::keepPlaying()
 {
     bool validChoice = false;
     bool selection;
+    char playerChoice;
+    bool gotChoice;
         while (not validChoice)
         {
             cout << "Do you want to keep playing?" << endl;
-            cin >> validChoice;
-                if (validChoice==true)
+            cin >> playerChoice;
+            gotChoice = getChoice(playerChoice);
+                if (playerChoice==playerChoice[2]||playerChoice==playerChoice[3])
                 {
                     selection = true;
                     validChoice = true;
                 }
-                    if (validChoice==false)
+                    if (playerChoice == playerChoice[0] || playerChoice == playerChoice[1])
                     {
                         selection = false;
                         validChoice = true;
@@ -37,4 +40,19 @@ bool Player::keepPlaying()
                         cout << "Invalid input!" << endl;
         }
         return selection;
+}
+bool Player::getChoice(char& choice)
+{
+    //I'll give you the code for this one
+//Gets a character from the user and stores it in choice.
+  //  Returns true if successful; false otherwise
+
+        string inText;
+
+        if (getline(cin, inText))
+        {
+            stringstream(inText) >> choice;
+            return true;
+        }
+        return false;
 }
