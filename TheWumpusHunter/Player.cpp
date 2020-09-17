@@ -19,19 +19,19 @@ bool Player::keepPlaying()
 {
     bool validChoice = false;
     bool selection;
-    char playerChoice;
+    char playerChoosing;
     bool gotChoice;
         while (not validChoice)
         {
             cout << "Do you want to keep playing?" << endl;
-            cin >> playerChoice;
-            gotChoice = getChoice(playerChoice);
-                if (playerChoice==playerChoice[2]||playerChoice==playerChoice[3])
+            cin >> playerChoosing;
+            gotChoice = getChoice(playerChoosing);
+                if (playerChoosing==playerChoice[2]||playerChoosing==playerChoice[3])
                 {
                     selection = true;
                     validChoice = true;
                 }
-                    if (playerChoice == playerChoice[0] || playerChoice == playerChoice[1])
+                    if (playerChoosing == playerChoice[0] || playerChoosing == playerChoice[1])
                     {
                         selection = false;
                         validChoice = true;
@@ -40,6 +40,7 @@ bool Player::keepPlaying()
                         cout << "Invalid input!" << endl;
         }
         return selection;
+
 }
 bool Player::getChoice(char& choice)
 {
@@ -55,4 +56,16 @@ bool Player::getChoice(char& choice)
             return true;
         }
         return false;
+}
+
+bool Player::getChoice(int& choice)
+{
+    string inText;
+
+    if (getline(cin, inText))
+    {
+        stringstream(inText) >> choice;
+        return true;
+    }
+    return false;
 }

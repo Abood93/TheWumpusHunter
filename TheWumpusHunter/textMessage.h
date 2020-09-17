@@ -24,14 +24,33 @@ constexpr int C2_YES = 2;
 constexpr int C3_YES = 3;
 constexpr int C4_QUIT = 4;
 constexpr int C5_QUIT = 5;
+constexpr int C6_MOVE = 6;
+constexpr int C7_MOVE = 7;
+constexpr int C8_SHOOT = 8;
+constexpr int C9_SHOOT = 9;
+constexpr int C10_HELP = 10;
+constexpr int C11_HELP = 11;
+constexpr int C12_HELP = 12;
+constexpr int C13_PRINTCAVERN = 13;
+constexpr int C14_EASTEREGG = 14;
 
-const char playerChoice[] =
+
+constexpr char playerChoice[] =
 {
 	/*C0_NO*/	'N',
 	/*C1_NO*/	'n',
 	/*C2_YES*/  'Y',
 	/*C3_YES*/  'y',
 	/*C4_QUIT*/ 'Q',
-	/*C5_QUIT*/ 'q'
-};
+	/*C5_QUIT*/ 'q',
+	/*C6_MOVE*/ 'M',
+	/*C7_MOVE*/ 'm',
+	/*C8_SHOOT*/ 'S',
+	/*C9_SHOOT*/ 's',
+	/*C10_HELP*/ 'H',
+	/*C11_HELP*/ 'h',
+	/*C12_HELP*/ '?',
+	/*C13_PRINTCAVERN*/ '+',
+	/*C14_EASTEREGG*/ '_'
 
+}; 

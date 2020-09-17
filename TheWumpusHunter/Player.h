@@ -9,7 +9,10 @@ public:
 	 void showText(const ostringstream&);
 	 bool keepPlaying();
 	 bool getChoice(char& choice);
+	 bool getChoice(int& choice);
+	 void setID();
+	 int getID();
 private:
-
+	int inCave;
 };
 

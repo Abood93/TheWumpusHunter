@@ -44,6 +44,7 @@ void Cavern::newGame()
 
 	//add ....bat,pit,wumpus,player.
 	theWumpusCaves[0].addPlayer();
+
 	for (i = 0; i < BAT_COUNT; i++)
 	{
 		objectAdded = false;
@@ -76,7 +77,7 @@ void Cavern::playGame()
 {
 
 	bool playMore = true;
-
+	int choice;
 		while (playMore)
 		{
 			newGame();
