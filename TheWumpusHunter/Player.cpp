@@ -21,9 +21,10 @@ bool Player::keepPlaying()
     bool selection;
     char playerChoosing;
     bool gotChoice;
+    ostringstream outText;
         while (not validChoice)
         {
-            cout << "Do you want to keep playing?" << endl;
+            outText << textMessage[S6_KEEPPLAYING] << endl;
             cin >> playerChoosing;
             gotChoice = getChoice(playerChoosing);
                 if (playerChoosing==playerChoice[2]||playerChoosing==playerChoice[3])
@@ -37,8 +38,11 @@ bool Player::keepPlaying()
                         validChoice = true;
                     }
                     if (not validChoice)
-                        cout << "Invalid input!" << endl;
+                        outText << textMessage[S7_INVALID] << endl;
+
         }
+        thePlayer.showText(outText);
+ 
         return selection;
 
 }
