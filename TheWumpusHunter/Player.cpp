@@ -25,6 +25,7 @@ bool Player::keepPlaying()
         while (not validChoice)
         {
             outText << textMessage[S6_KEEPPLAYING] << endl;
+            showText(outText);
             cin >> playerChoosing;
             gotChoice = getChoice(playerChoosing);
                 if (playerChoosing==playerChoice[2]||playerChoosing==playerChoice[3])
@@ -39,12 +40,9 @@ bool Player::keepPlaying()
                     }
                     if (not validChoice)
                         outText << textMessage[S7_INVALID] << endl;
-
+                    showText(outText);
         }
-        thePlayer.showText(outText);
- 
         return selection;
-
 }
 bool Player::getChoice(char& choice)
 {
