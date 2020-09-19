@@ -1,9 +1,10 @@
 This file contains unresolved System Problem Reports.  When they are resolved, they are moved to the ClosedSPRs file.
 //Sample//
-Number: 1  Date:  August 8, 2020  Opened by:  Grand Closed by: Hammer  Date:  August 10, 2020
+Number: 0  Date:  August 8, 2020  Opened by:  Grand Closed by: Hammer  Date:  August 10, 2020
 Problem:  passageCount in the Cave.h file is public.  It should be private.
 Solution:  passageCount moved to the private section of Cave definition.
 //End Sample//
-Number: 2  Date: September 19, 2020 Opened by:  Grand
+Number: 1  Date: September 19, 2020 Opened by:  Grand
 Problem:  When player is asked for input, curser does not appear on the same line as the question.
 Solution:
+Number 2:
