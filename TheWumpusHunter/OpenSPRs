@@ -6,5 +6,5 @@ Solution:  passageCount moved to the private section of Cave definition.
 //End Sample//
 Number: 1  Date: September 19, 2020 Opened by:  Grand
 Problem:  When player is asked for input, curser does not appear on the same line as the question.
-Solution:
-Number 2:
+Solution:  taking off the endl in showText function in textMessage.h file.
+Number 2: 
