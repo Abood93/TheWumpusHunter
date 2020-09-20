@@ -20,7 +20,7 @@ bool Player::keepPlaying()
     bool validChoice = false;
     bool selection;
     char playerChoosing;
-    bool gotChoice;
+    bool gotChoice
     ostringstream outText;
         while (not validChoice)
         {
