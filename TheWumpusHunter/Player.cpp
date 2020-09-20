@@ -9,7 +9,7 @@ using namespace std;
 
 void Player::showText(string messageText)
 {
-	cout << messageText<< endl;
+	cout << messageText;
 }
 void Player::showText(const ostringstream& outText)
 {
@@ -24,31 +24,27 @@ bool Player::keepPlaying()
     ostringstream outText;
         while (not validChoice)
         {
-            outText << textMessage[S6_KEEPPLAYING] << endl;
-            showText(outText);
-            cin >> playerChoosing;
+            showText(textMessage[S6_KEEPPLAYING]);
             gotChoice = getChoice(playerChoosing);
-                if (playerChoosing==playerChoice[2]||playerChoosing==playerChoice[3])
+                if (playerChoosing==PLAYER_CHOICE[C2_YES]||playerChoosing==PLAYER_CHOICE[C3_YES])
                 {
                     selection = true;
                     validChoice = true;
                 }
-                    if (playerChoosing == playerChoice[0] || playerChoosing == playerChoice[1])
-                    {
-                        selection = false;
-                        validChoice = true;
-                    }
-                    if (not validChoice)
-                        outText << textMessage[S7_INVALID] << endl;
-                    showText(outText);
+                if (playerChoosing == PLAYER_CHOICE[C0_NO] || playerChoosing == PLAYER_CHOICE[C1_NO])
+                {
+                     selection = false;
+                     validChoice = true;
+                }
+                if (not validChoice)
+                     showText(textMessage[S7_INVALID]);
         }
         return selection;
 }
 bool Player::getChoice(char& choice)
 {
-    //I'll give you the code for this one
-//Gets a character from the user and stores it in choice.
-  //  Returns true if successful; false otherwise
+    //Gets a character from the user and stores it in choice.
+    //  Returns true if successful; false otherwise
 
         string inText;
 

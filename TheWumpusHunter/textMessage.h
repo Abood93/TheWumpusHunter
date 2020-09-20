@@ -18,8 +18,8 @@ const string textMessage[] =
 	/*S3_PIT*/			" * ",
 	/*S4_WUMPUS*/       " W ",
 	/*S5_PLAYER*/		" P ",
-	/*S6_KEEPPLAYING*/  "Do you want to keep playing?",
-	/*S7_INVALID*/      "Invalid input!"
+	/*S6_KEEPPLAYING*/  "Do you want to keep playing? ",
+	/*S7_INVALID*/      "Not a valid choice. \n"
 };
 
 constexpr int C0_NO = 0;
@@ -39,22 +39,22 @@ constexpr int C13_PRINTCAVERN = 13;
 constexpr int C14_EASTEREGG = 14;
 
 
-constexpr char playerChoice[] =
+constexpr char PLAYER_CHOICE[] =
 {
-	/*C0_NO*/	'N',
-	/*C1_NO*/	'n',
-	/*C2_YES*/  'Y',
-	/*C3_YES*/  'y',
-	/*C4_QUIT*/ 'Q',
-	/*C5_QUIT*/ 'q',
-	/*C6_MOVE*/ 'M',
-	/*C7_MOVE*/ 'm',
-	/*C8_SHOOT*/ 'S',
-	/*C9_SHOOT*/ 's',
-	/*C10_HELP*/ 'H',
-	/*C11_HELP*/ 'h',
-	/*C12_HELP*/ '?',
-	/*C13_PRINTCAVERN*/ '+',
-	/*C14_EASTEREGG*/ '_'
+	/*C0_NO*/	           'N',
+	/*C1_NO*/	           'n',
+	/*C2_YES*/             'Y',
+	/*C3_YES*/             'y',
+	/*C4_QUIT*/            'Q',
+	/*C5_QUIT*/            'q',
+	/*C6_MOVE*/            'M',
+	/*C7_MOVE*/            'm',
+	/*C8_SHOOT*/           'S',
+	/*C9_SHOOT*/		   's',
+	/*C10_HELP*/		   'H',
+	/*C11_HELP*/		   'h',
+	/*C12_HELP*/           '?',
+	/*C13_PRINTCAVERN*/    '+',
+	/*C14_EASTEREGG*/      '_'
 
 }; 
