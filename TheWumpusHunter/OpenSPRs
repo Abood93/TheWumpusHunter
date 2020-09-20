@@ -1,7 +1,7 @@
 This file contains unresolved System Problem Reports.  When they are resolved, they are moved to the ClosedSPRs file.
 
 //Sample//
-Number: 0  Date:  August 8, 2020  Opened by:  Grand Closed by: Hammer  Date:  August 10, 2020
+Number: 0  Date:  August 8, 2020  Opened by:  Grand
 Problem:  passageCount in the Cave.h file is public.  It should be private.
 Solution:  passageCount moved to the private section of Cave definition.
 //End Sample//
