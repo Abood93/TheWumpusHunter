@@ -8,6 +8,7 @@ constexpr int S4_WUMPUS = 4;
 constexpr int S5_PLAYER = 5; 
 constexpr int S6_KEEPPLAYING = 6;
 constexpr int S7_INVALID = 7;
+constexpr int S8_CAVENUMBER = 8;
 
 
 const string textMessage[] =
@@ -19,7 +20,8 @@ const string textMessage[] =
 	/*S4_WUMPUS*/       " W ",
 	/*S5_PLAYER*/		" P ",
 	/*S6_KEEPPLAYING*/  "Do you want to keep playing? ",
-	/*S7_INVALID*/      "Not a valid choice. \n"
+	/*S7_INVALID*/      "Not a valid choice. \n",
+	/*S8_CAVENUMBER*/   "You're in cave number: "
 };
 
 constexpr int C0_NO = 0;

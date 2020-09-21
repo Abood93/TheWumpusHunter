@@ -1,7 +1,6 @@
 #pragma once
 //#define UNIT_TESTS
 
-
 constexpr int CAVE_COUNT = 20;
 constexpr int PASS_PER_CAVE = 3;
 constexpr int CAVES[CAVE_COUNT][PASS_PER_CAVE] = { { 1, 4, 7 }, { 0, 2, 9 }, { 1, 3, 11 }, { 2, 4, 13 },{ 0, 3, 5 },

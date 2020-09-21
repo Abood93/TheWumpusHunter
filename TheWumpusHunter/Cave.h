@@ -22,7 +22,7 @@ public:
 	void deletePlayer();
 	void clearCave();
 	void setID();
-	int getID();
+	int  getID();
 private:
 	int passageCount = 0;
 	int cavePassages[PASS_PER_CAVE];
@@ -30,5 +30,5 @@ private:
 	bool has_Pit=false;
 	bool has_Wumpus = false;
 	bool has_Player = false;
-	int caveID;
+	int caveID = 0;
 };

@@ -85,8 +85,7 @@ void Cavern::playGame()
 				bool wumpusAlive = true;
 				while (playerAlive && wumpusAlive)
 				{
-					//All of the logic for playing the game goes here
-					//Use this for the moment
+					thePlayer.getID();
 					printCavern();
 						wumpusAlive = false;
 				}

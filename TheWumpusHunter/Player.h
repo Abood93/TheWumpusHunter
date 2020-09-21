@@ -11,7 +11,9 @@ public:
 	 bool getChoice(char& choice);
 	 bool getChoice(int& choice);
 	 void setID();
-	 int getID();
+	 int  getID();
+	 void showCave(int[],int);
+	 void chooseAction();
 private:
 	int inCave;
 };

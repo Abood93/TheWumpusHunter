@@ -67,3 +67,4 @@ bool Player::getChoice(int& choice)
     }
     return false;
 }
+
