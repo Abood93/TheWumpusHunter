@@ -9,19 +9,21 @@ constexpr int S5_PLAYER = 5;
 constexpr int S6_KEEPPLAYING = 6;
 constexpr int S7_INVALID = 7;
 constexpr int S8_CAVENUMBER = 8;
+constexpr int S9_ADJACENT_CAVES = 9;
 
 
 const string textMessage[] =
 {
-	/*S0_CAVENUM*/	    "Cave number: ",
-	/*S1_ADJCAVE*/	    " is connected to the following caves: ",
-	/*S2_BAT*/			" B ",
-	/*S3_PIT*/			" * ",
-	/*S4_WUMPUS*/       " W ",
-	/*S5_PLAYER*/		" P ",
-	/*S6_KEEPPLAYING*/  "Do you want to keep playing? ",
-	/*S7_INVALID*/      "Not a valid choice. \n",
-	/*S8_CAVENUMBER*/   "You're in cave number: "
+	/*S0_CAVENUM*/	      "Cave number: ",
+	/*S1_ADJCAVE*/	      " is connected to the following caves: ",
+	/*S2_BAT*/			  " B ",
+	/*S3_PIT*/		      " * ",
+	/*S4_WUMPUS*/         " W ",
+	/*S5_PLAYER*/		  " P ",
+	/*S6_KEEPPLAYING*/    "Do you want to keep playing? ",
+	/*S7_INVALID*/        "Not a valid choice. \n",
+	/*S8_CAVENUMBER*/     "You're in cave number: ",
+	/*S9_ADJACENT_CAVES*/ "Adjacent caves are: "
 };
 
 constexpr int C0_NO = 0;

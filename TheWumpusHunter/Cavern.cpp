@@ -90,6 +90,7 @@ void Cavern::playGame()
 						wumpusAlive = false;
 				}
 				playMore = thePlayer.keepPlaying();
+
 		}
 }
 
