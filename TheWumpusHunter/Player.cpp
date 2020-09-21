@@ -67,4 +67,12 @@ bool Player::getChoice(int& choice)
     }
     return false;
 }
+void Player::setID(int x)
+{
+    inCave = x;
+}
+int Player::getID()
+{
+    return inCave;
+}
 
