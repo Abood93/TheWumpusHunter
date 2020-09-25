@@ -125,3 +125,11 @@ void Cave::clearCave()
 	deleteWumpus();
 	deletePlayer();
 }
+void Cave::setID(int ID)
+{
+	caveID = ID;  
+}
+int Cave::getID()
+{
+	return caveID;
+}

@@ -10,7 +10,7 @@ public:
 	 bool keepPlaying();
 	 bool getChoice(char& choice);
 	 bool getChoice(int& choice);
-	 void setID(int);
+	 void setID(int caveID);
 	 int  getID();
 	 void showCave(int[],int);
 	 void chooseAction();

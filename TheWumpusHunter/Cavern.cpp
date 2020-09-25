@@ -44,7 +44,7 @@ void Cavern::newGame()
 
 	//add ....bat,pit,wumpus,player.
 	theWumpusCaves[0].addPlayer();
-
+	thePlayer.setID(0);
 	for (i = 0; i < BAT_COUNT; i++)
 	{
 		objectAdded = false;
@@ -74,8 +74,8 @@ void Cavern::newGame()
 	}
 }
 void Cavern::playGame()
-{
-
+{	
+	int passageList[PASS_PER_CAVE];
 	bool playMore = true;
 	int choice;
 		while (playMore)
@@ -85,12 +85,11 @@ void Cavern::playGame()
 				bool wumpusAlive = true;
 				while (playerAlive && wumpusAlive)
 				{
-					thePlayer.getID();
 					printCavern();
-						wumpusAlive = false;
+					thePlayer.getID();
+				    wumpusAlive = false;
 				}
 				playMore = thePlayer.keepPlaying();
-
 		}
 }
 
@@ -99,7 +98,8 @@ Cavern::Cavern()
 	int i, j;
 	bool passageAdded;
 	for (i = 0; i < CAVE_COUNT; i++)
-
+	{
+		theWumpusCaves[i].setID(i);
 		for (j = 0; j < PASS_PER_CAVE; j++)
 		{
 			passageAdded = theWumpusCaves[i].addPassage(CAVES[i][j]);
@@ -109,6 +109,6 @@ Cavern::Cavern()
 				exit(-1);
 			}
 		}
-
+	}
 	newGame();
 }
