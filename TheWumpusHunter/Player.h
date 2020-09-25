@@ -12,8 +12,8 @@ public:
 	 bool getChoice(int& choice);
 	 void setID(int caveID);
 	 int  getID();
-	 void showCave(int[],int);
-	 void chooseAction();
+	 void showCave(int[]);
+	 int chooseAction();
 private:
 	int inCave;
 };

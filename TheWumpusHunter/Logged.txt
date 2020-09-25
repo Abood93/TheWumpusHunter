@@ -1,0 +1,21 @@
+Cave number: 0 is connected to the following caves:  1 4 7. P 
+Cave number: 1 is connected to the following caves:  0 2 9. W 
+Cave number: 2 is connected to the following caves:  1 3 11. B 
+Cave number: 3 is connected to the following caves:  2 4 13.
+Cave number: 4 is connected to the following caves:  0 3 5. * 
+Cave number: 5 is connected to the following caves:  4 6 14. * 
+Cave number: 6 is connected to the following caves:  5 7 16.
+Cave number: 7 is connected to the following caves:  0 6 8.
+Cave number: 8 is connected to the following caves:  7 9 17.
+Cave number: 9 is connected to the following caves:  1 8 10.
+Cave number: 10 is connected to the following caves:  9 11 18.
+Cave number: 11 is connected to the following caves:  2 10 12.
+Cave number: 12 is connected to the following caves:  11 13 19.
+Cave number: 13 is connected to the following caves:  3 12 14.
+Cave number: 14 is connected to the following caves:  5 13 15.
+Cave number: 15 is connected to the following caves:  14 16 19.
+Cave number: 16 is connected to the following caves:  6 15 17.
+Cave number: 17 is connected to the following caves:  8 16 18.
+Cave number: 18 is connected to the following caves:  10 17 19. B 
+Cave number: 19 is connected to the following caves:  12 15 18.
+Do you want to keep playing? 

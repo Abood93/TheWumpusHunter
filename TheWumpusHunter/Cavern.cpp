@@ -75,6 +75,7 @@ void Cavern::newGame()
 }
 void Cavern::playGame()
 {	
+	int theCave;
 	int passageList[PASS_PER_CAVE];
 	bool playMore = true;
 	int choice;
@@ -85,11 +86,36 @@ void Cavern::playGame()
 				bool wumpusAlive = true;
 				while (playerAlive && wumpusAlive)
 				{
-					printCavern();
-					thePlayer.getID();
-				    wumpusAlive = false;
+					//printCavern();
+					theCave = thePlayer.getID();
+					for (int i = 0; i < PASS_PER_CAVE; i++)
+						passageList[i] = theWumpusCaves[theCave].getPassage(i);
+					thePlayer.showCave(passageList);
+					choice = thePlayer.chooseAction(); 
+					switch (choice)
+					{
+						case C6_MOVE:
+							thePlayer.showText("to be implemented move\n");
+							break;
+						case C8_SHOOT: 
+							thePlayer.showText("to be implemented shoot\n");
+							break;
+						case C4_QUIT:
+							playMore = thePlayer.keepPlaying();
+							if (!playMore)
+								wumpusAlive = false;
+							break;
+						case C10_HELP:
+							thePlayer.showText(textMessage[S11_SHOW_HELP]);
+							break;
+						case C13_PRINTCAVERN:
+							printCavern();
+							break;
+						case C14_EASTEREGG:
+							thePlayer.showText("to be implemented easter egg\n");
+							break;
+					}
 				}
-				playMore = thePlayer.keepPlaying();
 		}
 }
 

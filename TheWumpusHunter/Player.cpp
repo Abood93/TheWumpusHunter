@@ -21,46 +21,32 @@ bool Player::keepPlaying()
     bool selection;
     char playerChoosing;
     bool gotChoice;
-    ostringstream outText;
         while (not validChoice)
         {
             showText(textMessage[S6_KEEPPLAYING]);
             gotChoice = getChoice(playerChoosing);
-            switch (playerChoosing)
+            if (gotChoice)
             {
-            case PLAYER_CHOICE[C2_YES]:
-            {
-                selection = true;
-                validChoice = true;
-                break;
+                switch (playerChoosing)
+                {
+                case PLAYER_CHOICE[C2_YES]:
+                case PLAYER_CHOICE[C3_YES]:
+                    selection = true;
+                    validChoice = true;
+                    break;
+                case PLAYER_CHOICE[C0_NO]:
+                case PLAYER_CHOICE[C1_NO]:
+                    selection = false;
+                    validChoice = true;
+                    break;
+                default:
+                    showText(textMessage[S7_INVALID]);
+                }
             }
-            case PLAYER_CHOICE[C3_YES]:
-            {
-                selection = true;
-                validChoice = true;
-                break;
-            }
-            case PLAYER_CHOICE[C0_NO]:
-            {
-                selection = false;
-                validChoice = true;
-                break;
-            }
-            case PLAYER_CHOICE[C1_NO]:
-            {
-                selection = false;
-                validChoice = true;
-                break;
-            }
-
-            }
-
-            if (not validChoice)
-                     showText(textMessage[S7_INVALID]);
         }
-       
         return selection;
 }
+
 bool Player::getChoice(char& choice)
 {
     //Gets a character from the user and stores it in choice.
@@ -96,15 +82,63 @@ int Player::getID()
     return inCave;
 }
 
-void Player::showCave(int passageList[], int numberOfPassages)
+void Player::showCave(int passageList[])
 {
     ostringstream outText;
     outText << textMessage[S8_CAVENUMBER] << getID() << textMessage[S9_ADJACENT_CAVES];
-    outText << " " << passageList[numberOfPassages];
-    outText << ".";
+    for (int j = 0; j < PASS_PER_CAVE; j++)
+        outText << " " << passageList[j];
+    outText << ".\n";
+    showText(outText);
 }
 
-//void Player::chooseAction()
-//{
-//
-//}
+int Player::chooseAction()
+{
+    bool validChoice = false;
+    int selection;
+    char playerChoosing;
+    bool gotChoice;
+    while (not validChoice)
+    {
+        showText(textMessage[S10_MAKE_CHOICE]);
+        gotChoice = getChoice(playerChoosing);
+        if (gotChoice)
+        {
+            switch (playerChoosing)
+            {
+            case PLAYER_CHOICE[C6_MOVE]:
+            case PLAYER_CHOICE[C7_MOVE]:
+                selection = C6_MOVE;
+                validChoice = true;
+                break;
+            case PLAYER_CHOICE[C8_SHOOT]:
+            case PLAYER_CHOICE[C9_SHOOT]:
+                selection = C8_SHOOT;
+                validChoice = true;
+                break;
+            case PLAYER_CHOICE[C10_HELP]:
+            case PLAYER_CHOICE[C11_HELP]:
+            case PLAYER_CHOICE[C12_HELP]:
+                selection = C10_HELP;
+                validChoice = true;
+                break;
+            case PLAYER_CHOICE[C4_QUIT]:
+            case PLAYER_CHOICE[C5_QUIT]:
+                selection = C4_QUIT;
+                validChoice = true;
+                break;
+            case PLAYER_CHOICE[C13_PRINTCAVERN]:
+                selection = C13_PRINTCAVERN;
+                validChoice = true;
+                break;
+            case PLAYER_CHOICE[C14_EASTEREGG]:
+                selection = C14_EASTEREGG;
+                validChoice = true;
+                break;
+            default:
+                showText(textMessage[S7_INVALID]);
+            }
+        }
+    }
+    return selection;
+}
