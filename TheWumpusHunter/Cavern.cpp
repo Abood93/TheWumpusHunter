@@ -112,7 +112,7 @@ void Cavern::playGame()
 							printCavern();
 							break;
 						case C14_EASTEREGG:
-							thePlayer.showText("to be implemented easter egg\n");
+							thePlayer.showText(textMessage[S12_EASTER_EGG_MESSAGE]);
 							break;
 					}
 				}

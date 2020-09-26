@@ -23,6 +23,7 @@ public:
 	void clearCave();
 	void setID(int ID);
 	int  getID();
+	int enterCave(Player&);
 private:
 	int passageCount = 0;
 	int cavePassages[PASS_PER_CAVE];

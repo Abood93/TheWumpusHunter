@@ -133,3 +133,7 @@ int Cave::getID()
 {
 	return caveID;
 }
+int Cave::enterCave(Player&)
+{
+
+}

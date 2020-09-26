@@ -12,6 +12,7 @@ constexpr int S8_CAVENUMBER = 8;
 constexpr int S9_ADJACENT_CAVES = 9;
 constexpr int S10_MAKE_CHOICE = 10;
 constexpr int S11_SHOW_HELP = 11;
+constexpr int S12_EASTER_EGG_MESSAGE = 12;
 
 const string textMessage[] =
 {
@@ -60,7 +61,11 @@ If the Wumpus does move to an adjacent cave, there are four possible outcomes.\n
    2 - The Wumpus moves to a cave with a bat and eats it.\n\
    3 - The Wumpus moves to a cave with a pit and falls in.\n\
        The player wins the game.\n\
-   4 - The wumpus moves to an empty cave.\n\n"
+   4 - The wumpus moves to an empty cave.\n\n",
+	/*S12_EASTER_EGG_MESSAGE*/   "This version of The Wumpus Hunter was developed by The Rock, \
+The Hammer and Grand. Copyright 2020.  All rights reserved.\A big thanks to the Grand for being the \
+best tutor :) \n"
+
 };
 
 constexpr int C0_NO = 0;
