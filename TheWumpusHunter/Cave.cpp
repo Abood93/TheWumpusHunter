@@ -136,4 +136,5 @@ int Cave::getID()
 int Cave::enterCave(Player&)
 {
 
+	return 0;
 }

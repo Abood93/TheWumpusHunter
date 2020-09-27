@@ -1,6 +1,7 @@
 #pragma once
 
 #include"TheWumpusHunter.h"
+#include"Player.h"
 
 class Cave
 {
@@ -24,6 +25,7 @@ public:
 	void setID(int ID);
 	int  getID();
 	int enterCave(Player&);
+
 private:
 	int passageCount = 0;
 	int cavePassages[PASS_PER_CAVE];

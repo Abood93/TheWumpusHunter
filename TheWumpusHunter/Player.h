@@ -4,7 +4,7 @@ using namespace std;
 
 class Player
 {
-public:
+public: 
 	 void showText(const string);
 	 void showText(const ostringstream&);
 	 bool keepPlaying();
@@ -14,7 +14,8 @@ public:
 	 int  getID();
 	 void showCave(int[]);
 	 int chooseAction();
+	 int chooseCave(int[]);
 private:
-	int inCave;
+	int inCave; 
 };
 
