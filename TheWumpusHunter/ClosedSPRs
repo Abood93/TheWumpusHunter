@@ -9,3 +9,10 @@ Number: 1  Date: September 19, 2020 Opened by:  Grand, closed by: Rocky Date: Se
 Problem:  When player is asked for input, curser does not appear on the same line as the question.
 Solution:  taking off the endl in showText function in textMessage.h file.
 //End of Problem 1//
+
+
+//Problem 2//
+Number 2:  Date:  September 27, 2020 Opened by Grand, closed by: The Hammer Date: September 28, 2020
+Problem:  The Easter Egg needs to be formatted so it fits on the screen.
+Solution: taking out the extra back slash from the easter egg message.
+//End of Problem 2//
