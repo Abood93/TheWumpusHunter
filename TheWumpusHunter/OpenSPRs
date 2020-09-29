@@ -6,4 +6,6 @@ Problem:  passageCount in the Cave.h file is public.  It should be private.
 Solution:  passageCount moved to the private section of Cave definition.
 //End Sample//
 
-Number 2: 
+
+
+Nymber 3:
