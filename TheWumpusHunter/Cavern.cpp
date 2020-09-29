@@ -75,6 +75,7 @@ void Cavern::newGame()
 }
 void Cavern::playGame()
 {	
+	int newCave;
 	int theCave;
 	int passageList[PASS_PER_CAVE];
 	bool playMore = true;
@@ -96,6 +97,7 @@ void Cavern::playGame()
 					{
 						case C6_MOVE:
 							thePlayer.showText("to be implemented move\n");
+							newCave = thePlayer.chooseCave(passageList);
 							break;
 						case C8_SHOOT: 
 							thePlayer.showText("to be implemented shoot\n");

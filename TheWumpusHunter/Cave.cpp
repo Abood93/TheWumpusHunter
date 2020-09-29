@@ -133,8 +133,32 @@ int Cave::getID()
 {
 	return caveID;
 }
-int Cave::enterCave(Player&)
+int Cave::enterCave(Player&player)
 {
-
-	return 0;
+	int caveEvent;
+	if (player.chooseCave(cavePassages) == !hasBat() && !hasPit() && !hasWumpus() && !hasPlayer())
+	{
+		caveEvent = E12_PLAYER_MOVE_COMPLETE;
+		has_Player = true;
+	}
+	if (player.chooseCave(cavePassages) == hasWumpus())
+	{
+		caveEvent = E10_WUMPUS_KILLS_PLAYER;
+	}
+	if (player.chooseCave(cavePassages) == !hasBat() && hasPit())
+	{
+		caveEvent = E11_PIT_KILLS_PLAYER;
+	}
+	if (player.chooseCave(cavePassages) == hasBat())
+	{
+		if (player.chooseCave(cavePassages) == hasBat() && hasPit())
+		{
+			caveEvent == E11_PIT_KILLS_PLAYER;
+		}
+		if (player.chooseCave(cavePassages) == hasBat() && !hasPit())
+		{
+			caveEvent = E9_BAT_MOVES_PLAYER;
+		}
+	}
+	return caveEvent;
 }

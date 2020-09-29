@@ -148,46 +148,49 @@ int Player::chooseCave(int passageList[])
     bool validChoice = false;
     int selection;
     int playerChoosing;
-    bool gotChoice;
+    int gotChoice;
     while (not validChoice)
     {
-        showText(textMessage[S10_MAKE_CHOICE]);
         gotChoice = getChoice(playerChoosing);
         if (gotChoice)
         {
-            switch (playerChoosing)
+            for (int i = 0; i < PASS_PER_CAVE; i++)
             {
-            case PLAYER_CHOICE[C6_MOVE]:
-            case PLAYER_CHOICE[C7_MOVE]:
-                selection = C6_MOVE;
-                validChoice = true;
-                break;
-            case PLAYER_CHOICE[C8_SHOOT]:
-            case PLAYER_CHOICE[C9_SHOOT]:
-                selection = C8_SHOOT;
-                validChoice = true;
-                break;
-            case PLAYER_CHOICE[C10_HELP]:
-            case PLAYER_CHOICE[C11_HELP]:
-            case PLAYER_CHOICE[C12_HELP]:
-                selection = C10_HELP;
-                validChoice = true;
-                break;
-            case PLAYER_CHOICE[C4_QUIT]:
-            case PLAYER_CHOICE[C5_QUIT]:
-                selection = C4_QUIT;
-                validChoice = true;
-                break;
-            case PLAYER_CHOICE[C13_PRINTCAVERN]:
-                selection = C13_PRINTCAVERN;
-                validChoice = true;
-                break;
-            case PLAYER_CHOICE[C14_EASTEREGG]:
-                selection = C14_EASTEREGG;
-                validChoice = true;
-                break;
-            default:
-                showText(textMessage[S7_INVALID]);
+                if (passageList[i] == gotChoice)
+                {
+                    if (gotChoice == PLAYER_CHOICE[C6_MOVE] || PLAYER_CHOICE[C7_MOVE])
+                    {
+                        selection = C6_MOVE;
+                        validChoice = true;
+                    }
+                    if (gotChoice == PLAYER_CHOICE[C8_SHOOT] || PLAYER_CHOICE[C9_SHOOT])
+                    {
+                        selection = C8_SHOOT;
+                        validChoice = true;
+                    }
+                    if (gotChoice == PLAYER_CHOICE[C10_HELP] || PLAYER_CHOICE[C11_HELP]|| PLAYER_CHOICE[C12_HELP])
+                    {
+                        selection = C8_SHOOT;
+                        validChoice = true;
+                    }
+                    if (gotChoice == PLAYER_CHOICE[C4_QUIT] || PLAYER_CHOICE[C5_QUIT])
+                    {
+                        selection = C4_QUIT;
+                        validChoice = true;
+                    }
+                    if (gotChoice == PLAYER_CHOICE[C13_PRINTCAVERN])
+                    {
+                        selection = C13_PRINTCAVERN;
+                        validChoice = true;
+                    }
+                    if (gotChoice == PLAYER_CHOICE[C14_EASTEREGG])
+                    {
+                        selection = C14_EASTEREGG;
+                        validChoice = true;
+                    }
+                    else
+                       showText(textMessage[S7_INVALID]);
+                }
             }
         }
     }

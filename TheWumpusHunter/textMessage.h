@@ -65,7 +65,6 @@ If the Wumpus does move to an adjacent cave, there are four possible outcomes.\n
 	/*S12_EASTER_EGG_MESSAGE*/   "This version of The Wumpus Hunter was developed by The Rock, \
 The Hammer and Grand. Copyright 2020.  All rights reserved.\nA big thanks to the Grand for being the \
 best tutor :) \n"
-
 };
 
 constexpr int C0_NO = 0;
