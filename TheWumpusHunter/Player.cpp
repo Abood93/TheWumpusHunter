@@ -156,6 +156,7 @@ int Player::chooseCave(int passageList[])
         {
             for (int i = 0; i < PASS_PER_CAVE; i++)
             {
+                
                 if (passageList[i] == gotChoice)
                 {
                     if (gotChoice == PLAYER_CHOICE[C6_MOVE] || PLAYER_CHOICE[C7_MOVE])
@@ -194,5 +195,5 @@ int Player::chooseCave(int passageList[])
             }
         }
     }
-    return selection;
+   return passageList[gotChoice];
 }

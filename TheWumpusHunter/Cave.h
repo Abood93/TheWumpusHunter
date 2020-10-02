@@ -2,7 +2,6 @@
 
 #include"TheWumpusHunter.h"
 #include"Player.h"
-#include"Cavern.h"
 class Cave
 {
 public:
