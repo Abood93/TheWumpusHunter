@@ -146,54 +146,22 @@ int Player::chooseAction()
 int Player::chooseCave(int passageList[])
 {
     bool validChoice = false;
-    int selection;
-    int playerChoosing;
-    int gotChoice;
+    int playerChoice;
+    bool gotChoice;
     while (not validChoice)
     {
-        gotChoice = getChoice(playerChoosing);
+        showText(textMessage[S13_WHICH_CAVE]);
+        gotChoice = getChoice(playerChoice);
         if (gotChoice)
         {
             for (int i = 0; i < PASS_PER_CAVE; i++)
             {
-                
-                if (passageList[i] == gotChoice)
-                {
-                    if (gotChoice == PLAYER_CHOICE[C6_MOVE] || PLAYER_CHOICE[C7_MOVE])
-                    {
-                        selection = C6_MOVE;
+                if (passageList[i] == playerChoice)
                         validChoice = true;
-                    }
-                    if (gotChoice == PLAYER_CHOICE[C8_SHOOT] || PLAYER_CHOICE[C9_SHOOT])
-                    {
-                        selection = C8_SHOOT;
-                        validChoice = true;
-                    }
-                    if (gotChoice == PLAYER_CHOICE[C10_HELP] || PLAYER_CHOICE[C11_HELP]|| PLAYER_CHOICE[C12_HELP])
-                    {
-                        selection = C8_SHOOT;
-                        validChoice = true;
-                    }
-                    if (gotChoice == PLAYER_CHOICE[C4_QUIT] || PLAYER_CHOICE[C5_QUIT])
-                    {
-                        selection = C4_QUIT;
-                        validChoice = true;
-                    }
-                    if (gotChoice == PLAYER_CHOICE[C13_PRINTCAVERN])
-                    {
-                        selection = C13_PRINTCAVERN;
-                        validChoice = true;
-                    }
-                    if (gotChoice == PLAYER_CHOICE[C14_EASTEREGG])
-                    {
-                        selection = C14_EASTEREGG;
-                        validChoice = true;
-                    }
-                    else
-                       showText(textMessage[S7_INVALID]);
-                }
             }
+            if(!validChoice)
+                showText(textMessage[S7_INVALID]);
         }
     }
-   return passageList[gotChoice];
+   return playerChoice;
 }

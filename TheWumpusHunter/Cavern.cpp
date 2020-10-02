@@ -75,11 +75,13 @@ void Cavern::newGame()
 }
 void Cavern::playGame()
 {	
+	int caveEvent;
 	int newCave;
 	int theCave;
 	int passageList[PASS_PER_CAVE];
 	bool playMore = true;
 	int choice;
+
 		while (playMore)
 		{
 			newGame();
@@ -96,10 +98,13 @@ void Cavern::playGame()
 					switch (choice)
 					{
 						case C6_MOVE:
-							thePlayer.showText("to be implemented move\n");
 							newCave = thePlayer.chooseCave(passageList);
+							cerr << "cave chosen = " << newCave << endl;
+							caveEvent = theWumpusCaves[newCave].enterCave(thePlayer);
+							cerr << "cave event = " << caveEvent << endl;
 							break;
 						case C8_SHOOT: 
+							thePlayer.showText(textMessage[S13_WHICH_CAVE]);
 							thePlayer.showText("to be implemented shoot\n");
 							break;
 						case C4_QUIT:

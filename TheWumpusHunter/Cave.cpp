@@ -1,4 +1,6 @@
 #include<iostream>
+#include<ctime>
+#include<cstdlib>
 #include "Cave.h"
 #include "Cavern.h"
 #include"TheWumpusHunter.h"
@@ -133,32 +135,27 @@ int Cave::getID()
 {
 	return caveID;
 }
-int Cave::enterCave(Player&player)
+
+int Cave::enterCave(Player& player)
 {
-	int caveEvent;
-	if (player.chooseCave(cavePassages) == !hasBat() && !hasPit() && !hasWumpus() && !hasPlayer())
-	{
-		caveEvent = E12_PLAYER_MOVE_COMPLETE;
-		has_Player = true;
-	}
-	if (player.chooseCave(cavePassages) == hasWumpus())
-	{
+	int caveEvent = E12_PLAYER_MOVE_COMPLETE;
+    addPlayer();
+	player.setID(getID());
+	if (hasWumpus())
 		caveEvent = E10_WUMPUS_KILLS_PLAYER;
-	}
-	if (player.chooseCave(cavePassages) == !hasBat() && hasPit())
-	{
+	if (hasPit())
 		caveEvent = E11_PIT_KILLS_PLAYER;
-	}
-	if (player.chooseCave(cavePassages) == hasBat())
+	if (hasBat())
 	{
-		if (player.chooseCave(cavePassages) == hasBat() && hasPit())
+		if (hasPit())
 		{
-			caveEvent == E11_PIT_KILLS_PLAYER;
+			if ((rand() % 2) == 1)
+				caveEvent == E11_PIT_KILLS_PLAYER;
+			else
+				caveEvent = E9_BAT_MOVES_PLAYER;
 		}
-		if (player.chooseCave(cavePassages) == hasBat() && !hasPit())
-		{
+		else
 			caveEvent = E9_BAT_MOVES_PLAYER;
-		}
 	}
 	return caveEvent;
 }

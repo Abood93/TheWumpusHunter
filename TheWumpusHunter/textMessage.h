@@ -13,6 +13,8 @@ constexpr int S9_ADJACENT_CAVES = 9;
 constexpr int S10_MAKE_CHOICE = 10;
 constexpr int S11_SHOW_HELP = 11;
 constexpr int S12_EASTER_EGG_MESSAGE = 12;
+constexpr int S13_WHICH_CAVE = 13;
+
 
 const string textMessage[] =
 {
@@ -64,7 +66,8 @@ If the Wumpus does move to an adjacent cave, there are four possible outcomes.\n
    4 - The wumpus moves to an empty cave.\n\n",
 	/*S12_EASTER_EGG_MESSAGE*/   "This version of The Wumpus Hunter was developed by The Rock, \
 The Hammer and Grand. Copyright 2020.  All rights reserved.\nA big thanks to the Grand for being the \
-best tutor :) \n"
+best tutor :) \n",
+    /*S13_WHICH_CAVE*/     "Which cave?"
 };
 
 constexpr int C0_NO = 0;
