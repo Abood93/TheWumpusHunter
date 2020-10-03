@@ -102,6 +102,7 @@ void Cavern::playGame()
 							cerr << "cave chosen = " << newCave << endl;
 							caveEvent = theWumpusCaves[newCave].enterCave(thePlayer);
 							cerr << "cave event = " << caveEvent << endl;
+							checkNearbyCaves();
 							break;
 						case C8_SHOOT: 
 							thePlayer.showText(textMessage[S13_WHICH_CAVE]);
@@ -124,6 +125,81 @@ void Cavern::playGame()
 					}
 				}
 		}
+}
+
+bool Cavern::sniff()
+{
+	int thisCave;
+	int adjacentCave;
+	int i;
+	bool wumpusNear;
+	thisCave = thePlayer.getID();
+	wumpusNear = false;
+	for (i = 0; i < theWumpusCaves[thisCave].getPassageCount(); i++)
+	{
+		adjacentCave = theWumpusCaves[thisCave].getPassage(i);
+		if (theWumpusCaves[adjacentCave].hasWumpus() == true)
+			wumpusNear = true;
+
+	}
+	return wumpusNear;
+}
+
+bool Cavern::feel()
+{
+	int thisCave;
+	int adjacentCave;
+	int i;
+	bool pitNear;
+	thisCave = thePlayer.getID();
+	pitNear = false;
+	for (i = 0; i < theWumpusCaves[thisCave].getPassageCount(); i++)
+	{
+		adjacentCave = theWumpusCaves[thisCave].getPassage(i);
+		if (theWumpusCaves[adjacentCave].hasPit() == true)
+			pitNear = true;
+
+	}
+	return pitNear;
+}
+bool Cavern::listen()
+{
+	int thisCave;
+	int adjacentCave;
+	int i;
+	bool batNear;
+	thisCave = thePlayer.getID();
+	batNear = false;
+	for (i = 0; i < theWumpusCaves[thisCave].getPassageCount(); i++)
+	{
+		adjacentCave = theWumpusCaves[thisCave].getPassage(i);
+		if (theWumpusCaves[adjacentCave].hasBat() == true)
+			batNear = true;
+
+	}
+	return batNear;
+}
+
+bool Cavern::checkNearbyCaves()
+{
+	bool cenario = false;
+
+	if (sniff() == true)
+	{
+		cenario = true;
+		thePlayer.showText(textMessage[S14_SNIFF]);
+	}
+	if (feel() == true)
+	{
+		cenario = true;
+		thePlayer.showText(textMessage[S15_FEEL]);
+	}
+	if (listen() == true)
+	{
+		cenario = true;
+		thePlayer.showText(textMessage[S16_LISTEN]);
+	}
+	return cenario;
 }
 
 Cavern::Cavern()

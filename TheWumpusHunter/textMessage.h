@@ -14,6 +14,9 @@ constexpr int S10_MAKE_CHOICE = 10;
 constexpr int S11_SHOW_HELP = 11;
 constexpr int S12_EASTER_EGG_MESSAGE = 12;
 constexpr int S13_WHICH_CAVE = 13;
+constexpr int S14_SNIFF = 14;
+constexpr int S15_FEEL =15;
+constexpr int S16_LISTEN = 16;
 
 
 const string textMessage[] =
@@ -67,7 +70,10 @@ If the Wumpus does move to an adjacent cave, there are four possible outcomes.\n
 	/*S12_EASTER_EGG_MESSAGE*/   "This version of The Wumpus Hunter was developed by The Rock, \
 The Hammer and Grand. Copyright 2020.  All rights reserved.\nA big thanks to the Grand for being the \
 best tutor :) \n",
-    /*S13_WHICH_CAVE*/     "Which cave?"
+    /*S13_WHICH_CAVE*/     "Which cave?",
+	/*S14_SNIFF*/		   "I smell a Wumpus!\n",
+	/*S15_FEEL*/           "I feel a cold draft!\n",
+	/*S16_LISTEN*/         "I hear a rustling nearby!\n"
 };
 
 constexpr int C0_NO = 0;

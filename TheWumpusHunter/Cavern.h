@@ -8,6 +8,10 @@ public:
 	void newGame();
 	void printCavern();
 	void playGame();
+	bool sniff();
+	bool feel();
+	bool listen();
+	bool checkNearbyCaves();
 	Cavern();
 private:
 	Cave theWumpusCaves[CAVE_COUNT];
