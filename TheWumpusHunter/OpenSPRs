@@ -8,4 +8,5 @@ Solution:  passageCount moved to the private section of Cave definition.
 
 
 
-Nymber 3:
+Nymber 3:  Date:  Oct 3, 2020 Opened by: Grand
+Problem:  Player::enterCave has a compiler warning which actually results in a logic error.
