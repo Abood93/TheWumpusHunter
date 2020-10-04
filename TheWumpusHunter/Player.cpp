@@ -65,12 +65,13 @@ bool Player::getChoice(char& choice)
 bool Player::getChoice(int& choice)
 {
     string inText;
-
     if (getline(cin, inText))
     {
-        stringstream(inText) >> choice;
-        return true;
+            stringstream(inText) >> choice;
+            if (choice >= 0 && choice < 20)
+                return true;
     }
+    showText(textMessage[S7_INVALID]);
     return false;
 }
 void Player::setID(int caveID)

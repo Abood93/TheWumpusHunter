@@ -102,7 +102,7 @@ void Cavern::playGame()
 							cerr << "cave chosen = " << newCave << endl;
 							caveEvent = theWumpusCaves[newCave].enterCave(thePlayer);
 							cerr << "cave event = " << caveEvent << endl;
-							checkNearbyCaves();
+							checkNearbyCaves(); 
 							break;
 						case C8_SHOOT: 
 							thePlayer.showText(textMessage[S13_WHICH_CAVE]);

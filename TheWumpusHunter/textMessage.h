@@ -17,7 +17,7 @@ constexpr int S13_WHICH_CAVE = 13;
 constexpr int S14_SNIFF = 14;
 constexpr int S15_FEEL =15;
 constexpr int S16_LISTEN = 16;
-
+constexpr int E9_BAT_MOVES_PLAYER = 17;
 
 const string textMessage[] =
 {
