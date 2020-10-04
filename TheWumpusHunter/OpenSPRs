@@ -9,6 +9,3 @@ Solution:  passageCount moved to the private section of Cave definition.
 Number 3:  Date:  Oct 3, 2020 Opened by: Grand
 Problem:  Player::enterCave has a compiler warning which actually results in a logic error.
 
-Number 4:  Date:  Oct 3, 2020 Opened by Grand
-Problem:  Palyer::getChoice(int& choice) sets choice to zero if I enter alphabetic characters before digits.
-For example, if I enter "xx", choice is set to 0 instead of telling the user it's not a valid choice.
