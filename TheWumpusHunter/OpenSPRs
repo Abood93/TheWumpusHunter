@@ -6,6 +6,6 @@ Problem:  passageCount in the Cave.h file is public.  It should be private.
 Solution:  passageCount moved to the private section of Cave definition.
 //End Sample//
 
+Number 3:  Date:  Oct 3, 2020 Opened by: Grand
+Problem:  Player::enterCave has a compiler warning which actually results in a logic error.
 
-
-Nymber 3:
