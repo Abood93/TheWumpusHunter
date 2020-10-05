@@ -22,3 +22,13 @@ Number 3:  Date:  Oct 3, 2020 Opened by: Grand, closed by: Hammer and Rocky Date
 Problem:  Player::enterCave has a compiler warning which actually results in a logic error.
 solution: removing the extra "=".
 //end of problem 3//
+
+//problem 4//
+Number 4:  Date:  Oct 3, 2020 Opened by Grand, closed by: Rocky and Hammer Date: Octobor 4, 2020
+Problem:  Palyer::getChoice(int& choice) sets choice to zero if I enter alphabetic characters before digits.
+For example, if I enter "xx", choice is set to 0 instead of telling the user it's not a valid choice.
+Solution: making an if statement to make sure that the number entered is between 0 and 19, otherwise displaying a "not valid choice" message.
+Reopened October 4, 2020. Reclosed by The Grand, Hammer and Rocky Date: Octobor 5, 2020
+That doesn't fix the problem.  Did you test your fix?  If the player enters "xy", inText will be "xy", but choice will be zero.
+solution udpate: adding an if (choice == 0 && inText[0] != '0') statement and a return value of false.
+//end of problem 4//
