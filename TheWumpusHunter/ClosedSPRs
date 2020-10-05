@@ -17,9 +17,4 @@ Problem:  The Easter Egg needs to be formatted so it fits on the screen.
 Solution: taking out the extra back slash from the easter egg message.
 //End of Problem 2//
 
-//problem 4//
-Number 4:  Date:  Oct 3, 2020 Opened by Grand, closed by: Rocky and Hammer Date: Octobor 4, 2020
-Problem:  Palyer::getChoice(int& choice) sets choice to zero if I enter alphabetic characters before digits.
-For example, if I enter "xx", choice is set to 0 instead of telling the user it's not a valid choice.
-Solution: making an if statement to make sure that the number entered is between 0 and 19, otherwise displaying a "not valid choice" message.
-//end of problem 4//
+
