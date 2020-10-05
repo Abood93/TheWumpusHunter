@@ -17,4 +17,8 @@ Problem:  The Easter Egg needs to be formatted so it fits on the screen.
 Solution: taking out the extra back slash from the easter egg message.
 //End of Problem 2//
 
-
+//problem 3//
+Number 3:  Date:  Oct 3, 2020 Opened by: Grand, closed by: Hammer and Rocky Date: Octobor 5, 2020
+Problem:  Player::enterCave has a compiler warning which actually results in a logic error.
+solution: removing the extra "=".
+//end of problem 3//
