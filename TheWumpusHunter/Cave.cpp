@@ -141,8 +141,8 @@ int Cave::enterCave(Player& player)
 	int caveEvent = E12_PLAYER_MOVE_COMPLETE;
     addPlayer();
 	player.setID(getID());
-	if (hasWumpus())
-		caveEvent = E10_WUMPUS_KILLS_PLAYER;
+	if (hasWumpus()) 
+		caveEvent = E10_WUMPUS_KILLS_PLAYER;   
 	if (hasPit())
 		caveEvent = E11_PIT_KILLS_PLAYER;
 	if (hasBat())
@@ -150,7 +150,7 @@ int Cave::enterCave(Player& player)
 		if (hasPit())
 		{
 			if ((rand() % 2) == 1)
-				caveEvent == E11_PIT_KILLS_PLAYER;
+				caveEvent = E11_PIT_KILLS_PLAYER;
 			else
 				caveEvent = E9_BAT_MOVES_PLAYER;
 		}
