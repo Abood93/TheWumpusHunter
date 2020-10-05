@@ -6,6 +6,12 @@ Problem:  passageCount in the Cave.h file is public.  It should be private.
 Solution:  passageCount moved to the private section of Cave definition.
 //End Sample//
 
-Number 3:  Date:  Oct 3, 2020 Opened by: Grand
-Problem:  Player::enterCave has a compiler warning which actually results in a logic error.
 
+//problem 4//
+Number 4:  Date:  Oct 3, 2020 Opened by Grand, closed by: Rocky and Hammer Date: Octobor 4, 2020
+Problem:  Palyer::getChoice(int& choice) sets choice to zero if I enter alphabetic characters before digits.
+For example, if I enter "xx", choice is set to 0 instead of telling the user it's not a valid choice.
+Solution: making an if statement to make sure that the number entered is between 0 and 19, otherwise displaying a "not valid choice" message.
+Reopened October 4, 2020.
+That doesn't fix the problem.  Did you test your fix?  If the player enters "xy", inText will be "xy", but choice will be zero.
+//end of problem 4//
