@@ -91,7 +91,6 @@ void Cavern::playGame()
 				bool wumpusAlive = true;
 				while (playerAlive && wumpusAlive)
 				{
-					//printCavern();
 					theCave = thePlayer.getID();
 					for (int i = 0; i < PASS_PER_CAVE; i++)
 						passageList[i] = theWumpusCaves[theCave].getPassage(i);
@@ -101,29 +100,53 @@ void Cavern::playGame()
 					{
 						case C6_MOVE:
 							newCave = thePlayer.chooseCave(passageList);
-							cerr << "cave chosen = " << newCave << endl;
 							caveEvent = theWumpusCaves[newCave].enterCave(thePlayer);
-							cerr << "cave event = " << caveEvent << endl;
-							checkNearbyCaves(); 
+							//start
+							theWumpusCaves[theCave].deletePlayer();
+							if (caveEvent == E9_BAT_MOVES_PLAYER)
+							{
+								int whichCave;
+								bool caveFound = false;
+								while (!caveFound)
+								{
+									whichCave = (rand() % CAVE_COUNT);
+									caveFound = theWumpusCaves[whichCave].addBat();
+								}
+								caveEvent = theWumpusCaves[whichCave].enterCave(thePlayer);
+							}
+							if (caveEvent == E10_WUMPUS_KILLS_PLAYER)
+							{
+								thePlayer.showText(textMessage[S19_GAME_LOST_WUMPUS]);
+								playerAlive = false;
+							}
+							if (caveEvent == E11_PIT_KILLS_PLAYER)
+							{
+								thePlayer.showText(textMessage[S20_GAME_LOST_PIT]);
+								playerAlive = false;
+							}
+							if (caveEvent == E12_PLAYER_MOVE_COMPLETE)
+							{
+								checkNearbyCaves();
+							}
+							//end
 							break;
 						case C8_SHOOT: 
 							newCave = thePlayer.chooseCave(passageList);
 							cerr << "cave chosen = " << newCave << endl;
-							caveEvent = shootInCave();
+							caveEvent = theWumpusCaves[newCave].shootInCave();
+							//E10_WUMPUS_KILLS_PLAYER
+							//playerAlive = false;
+							//E11_PIT_KILLS_PLAYER
+							//playerAlive = false;
 							arrowCount--;
 							if (arrowCount >= 1)
 							{
 								thePlayer.showText(textMessage[S17_ARROWS_LEFT]);
 								cout << arrowCount << endl;
-								//show options
 							}
 							else
 								thePlayer.showText(textMessage[S18_GAME_LOST_ARROWS]);
 							cerr << "cave event = " << caveEvent << endl;
-						
-
-							//thePlayer.showText(textMessage[S13_WHICH_CAVE]);
-						//	thePlayer.showText("to be implemented shoot\n");
 							break;
 						case C4_QUIT:
 							playMore = thePlayer.keepPlaying();
@@ -219,29 +242,12 @@ bool Cavern::checkNearbyCaves()
 	return cenario;
 }
 
-int Cavern::shootInCave()
-{
-	int thisCave{};
-	int caveEvent = E2_PLAYER_SHOOTS;
-	theWumpusCaves[thisCave].addPlayer();
-	thePlayer.setID(thePlayer.getID());
-	
-	if (!theWumpusCaves[thisCave].hasWumpus() && !theWumpusCaves[thisCave].hasBat() &&
-		!theWumpusCaves[thisCave].hasPit())
-	{
-		caveEvent = E13_ARROW_TO_EMPTY_CAVE_AND_WUMPUS_STAYS;
-	}
-	return caveEvent;
-}
-
 int Cavern::whereIsWumpus()
 {
 	for (int i = 0; i < CAVE_COUNT; i++)
-		for (int j = 0; j < PASS_PER_CAVE; j++)
-		{
-			if (theWumpusCaves[j].hasWumpus() == true)
-				return theWumpusCaves[j].getID();
-		}
+			if (theWumpusCaves[i].hasWumpus())
+				return theWumpusCaves[i].getID();
+	return RETURN_ERROR;
 }
 
 Cavern::Cavern()

@@ -12,7 +12,6 @@ public:
 	bool feel();
 	bool listen();
 	bool checkNearbyCaves();
-	int shootInCave();
 	int whereIsWumpus();
 	Cavern();
 private:

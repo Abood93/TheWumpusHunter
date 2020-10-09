@@ -143,35 +143,25 @@ int Cave::enterCave(Player& player)
     addPlayer();
 	player.setID(getID());
 	if (hasWumpus())
-	{
-		the_Player.showText(textMessage[S19_GAME_LOST_WUMPUS]);
 		caveEvent = E10_WUMPUS_KILLS_PLAYER;
-	}
 	if (hasPit())
-	{
-		the_Player.showText(textMessage[S20_GAME_LOST_PIT]);
 		caveEvent = E11_PIT_KILLS_PLAYER;
-	}
 	if (hasBat())
 	{
+		caveEvent = E9_BAT_MOVES_PLAYER;
 		if (hasPit())
-		{
 			if ((rand() % 2) == 1)
-			{
-				the_Player.showText(textMessage[S20_GAME_LOST_PIT]);
 				caveEvent = E11_PIT_KILLS_PLAYER;
-			}
-			else
-			{
-				the_Player.showText(textMessage[S22_BAT_TRANSFERS_FROM_PIT]);
-				caveEvent = E9_BAT_MOVES_PLAYER;
-			}
-		}
-		else
-		{
-			the_Player.showText(textMessage[S21_BAT_TRANSFERS]);
-			caveEvent = E9_BAT_MOVES_PLAYER;
-		}
+	}
+	return caveEvent;
+}
+
+int Cave::shootInCave()
+{
+	int caveEvent = E2_PLAYER_SHOOTS;
+	if (!hasWumpus() && !hasBat() && !hasPit())
+	{
+		caveEvent = E13_ARROW_TO_EMPTY_CAVE_AND_WUMPUS_STAYS;
 	}
 	return caveEvent;
 }

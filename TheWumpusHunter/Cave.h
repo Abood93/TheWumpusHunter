@@ -25,6 +25,7 @@ public:
 	void setID(int ID);
 	int  getID();
 	int enterCave(Player&);
+	int shootInCave();
 
 private:
 	int passageCount = 0;
@@ -34,5 +35,4 @@ private:
 	bool has_Wumpus = false;
 	bool has_Player = false;
 	int caveID;
-	Player the_Player;
 };
