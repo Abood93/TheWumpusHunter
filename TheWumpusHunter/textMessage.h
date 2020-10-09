@@ -17,7 +17,14 @@ constexpr int S13_WHICH_CAVE = 13;
 constexpr int S14_SNIFF = 14;
 constexpr int S15_FEEL =15;
 constexpr int S16_LISTEN = 16;
-//constexpr int E9_BAT_MOVES_PLAYER = 17;
+constexpr int S17_ARROWS_LEFT = 17;
+constexpr int S18_GAME_LOST_ARROWS = 18;
+constexpr int S19_GAME_LOST_WUMPUS = 19;
+constexpr int S20_GAME_LOST_PIT = 20;
+constexpr int S21_BAT_TRANSFERS = 21;
+constexpr int S22_BAT_TRANSFERS_FROM_PIT = 22;
+
+
 
 const string textMessage[] =
 {
@@ -69,11 +76,17 @@ If the Wumpus does move to an adjacent cave, there are four possible outcomes.\n
    4 - The wumpus moves to an empty cave.\n\n",
 	/*S12_EASTER_EGG_MESSAGE*/   "This version of The Wumpus Hunter was developed by The Rock, \
 The Hammer and Grand. Copyright 2020.  All rights reserved.\nA big thanks to the Grand for being the \
-best tutor :) \n",
-    /*S13_WHICH_CAVE*/     "Which cave?",
-	/*S14_SNIFF*/		   "I smell a Wumpus!\n",
-	/*S15_FEEL*/           "I feel a cold draft!\n",
-	/*S16_LISTEN*/         "I hear a rustling nearby!\n"
+best tutor :) \n", 
+    /*S13_WHICH_CAVE*/              "Which cave?",
+	/*S14_SNIFF*/		            "I smell a Wumpus!\n",
+	/*S15_FEEL*/                    "I feel a cold draft!\n",
+	/*S16_LISTEN*/                  "I hear a rustling nearby!\n",
+	/*S17_ARROWS_LEFT*/             "The number of arrows left are: ",
+	/*S18_GAME_LOST_ARROWS*/        "Game lost because you consumed all arrows\n",
+	/*S19_GAME_LOST_WUMPUS*/        "Game lost because the Wumpus ate you\n",
+	/*S20_GAME_LOST_PIT*/           "Game lost because you fell in the Pit\n",
+	/*S21_BAT_TRANSFERS*/           "You've been transfered by the Bat to cave: ",
+	/*S22_BAT_TRANSFERS_FROM_PIT*/  "You've been saved from falling the Pit by the Bat"
 };
 
 constexpr int C0_NO = 0;

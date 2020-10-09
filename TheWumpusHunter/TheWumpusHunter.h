@@ -38,4 +38,5 @@ constexpr int E23_WUMPUS_EATS_BAT = 23;
 constexpr int E24_WUMPUS_FALLS_INTO_PIT = 24;
 constexpr int E25_WUMPUS_STAYS_ASLEEP = 25;
 constexpr int E26_WUMPUS_MOVE_COMPLETE = 26;
+constexpr int E27_NUMBER_OF_ARROWS = 5;
 

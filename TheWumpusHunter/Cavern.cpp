@@ -8,6 +8,7 @@
 #include"Player.h"
 #include"textMessage.h"
 
+
 using namespace std;
 
 
@@ -75,12 +76,13 @@ void Cavern::newGame()
 }
 void Cavern::playGame()
 {	
+	bool playMore = true;
 	int caveEvent;
 	int newCave;
 	int theCave;
 	int passageList[PASS_PER_CAVE];
-	bool playMore = true;
 	int choice;
+	int arrowCount = 5;
 
 		while (playMore)
 		{
@@ -105,8 +107,23 @@ void Cavern::playGame()
 							checkNearbyCaves(); 
 							break;
 						case C8_SHOOT: 
-							thePlayer.showText(textMessage[S13_WHICH_CAVE]);
-							thePlayer.showText("to be implemented shoot\n");
+							newCave = thePlayer.chooseCave(passageList);
+							cerr << "cave chosen = " << newCave << endl;
+							caveEvent = shootInCave();
+							arrowCount--;
+							if (arrowCount >= 1)
+							{
+								thePlayer.showText(textMessage[S17_ARROWS_LEFT]);
+								cout << arrowCount << endl;
+								//show options
+							}
+							else
+								thePlayer.showText(textMessage[S18_GAME_LOST_ARROWS]);
+							cerr << "cave event = " << caveEvent << endl;
+						
+
+							//thePlayer.showText(textMessage[S13_WHICH_CAVE]);
+						//	thePlayer.showText("to be implemented shoot\n");
 							break;
 						case C4_QUIT:
 							playMore = thePlayer.keepPlaying();
@@ -200,6 +217,31 @@ bool Cavern::checkNearbyCaves()
 		thePlayer.showText(textMessage[S16_LISTEN]);
 	}
 	return cenario;
+}
+
+int Cavern::shootInCave()
+{
+	int thisCave{};
+	int caveEvent = E2_PLAYER_SHOOTS;
+	theWumpusCaves[thisCave].addPlayer();
+	thePlayer.setID(thePlayer.getID());
+	
+	if (!theWumpusCaves[thisCave].hasWumpus() && !theWumpusCaves[thisCave].hasBat() &&
+		!theWumpusCaves[thisCave].hasPit())
+	{
+		caveEvent = E13_ARROW_TO_EMPTY_CAVE_AND_WUMPUS_STAYS;
+	}
+	return caveEvent;
+}
+
+int Cavern::whereIsWumpus()
+{
+	for (int i = 0; i < CAVE_COUNT; i++)
+		for (int j = 0; j < PASS_PER_CAVE; j++)
+		{
+			if (theWumpusCaves[j].hasWumpus() == true)
+				return theWumpusCaves[j].getID();
+		}
 }
 
 Cavern::Cavern()

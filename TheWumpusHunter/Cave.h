@@ -2,6 +2,7 @@
 
 #include"TheWumpusHunter.h"
 #include"Player.h"
+
 class Cave
 {
 public:
@@ -28,9 +29,10 @@ public:
 private:
 	int passageCount = 0;
 	int cavePassages[PASS_PER_CAVE];
-	bool has_Bat=false;
-	bool has_Pit=false;
+	bool has_Bat = false;
+	bool has_Pit = false;
 	bool has_Wumpus = false;
 	bool has_Player = false;
 	int caveID;
+	Player the_Player;
 };

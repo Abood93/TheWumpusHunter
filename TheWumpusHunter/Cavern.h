@@ -12,6 +12,8 @@ public:
 	bool feel();
 	bool listen();
 	bool checkNearbyCaves();
+	int shootInCave();
+	int whereIsWumpus();
 	Cavern();
 private:
 	Cave theWumpusCaves[CAVE_COUNT];
