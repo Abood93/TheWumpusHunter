@@ -158,10 +158,37 @@ int Cave::enterCave(Player& player)
 
 int Cave::shootInCave()
 {
+	int chance;
 	int caveEvent = E2_PLAYER_SHOOTS;
 	if (!hasWumpus() && !hasBat() && !hasPit())
 	{
-		caveEvent = E13_ARROW_TO_EMPTY_CAVE_AND_WUMPUS_STAYS;
+		chance = rand() % 4;
+		if(chance >= 75)
+			caveEvent = E13_ARROW_TO_EMPTY_CAVE_AND_WUMPUS_STAYS;
+		if (chance < 75)
+		{
+			caveEvent = E14_ARROW_TO_EMPTY_CAVE_AND_WUMPUS_MOVES;
+			caveEvent = E23_WUMPUS_EATS_BAT;
+		}
+			
 	}
+
+
+	if (!hasWumpus() && !hasBat() && !hasPit())
+	{
+		if (rand() % 75 == E26_WUMPUS_MOVE_COMPLETE)
+			caveEvent = E23_WUMPUS_EATS_BAT;
+	}
+	if (!hasWumpus() && !hasBat() && !hasPit())
+	{
+		if (rand() % 75 == E26_WUMPUS_MOVE_COMPLETE)
+			caveEvent = E24_WUMPUS_FALLS_INTO_PIT;
+	}
+	if (!hasWumpus() && !hasBat() && !hasPit())
+	{
+		if (rand() % 75 == E26_WUMPUS_MOVE_COMPLETE)
+			caveEvent = E22_WUMPUS_KILLS_PLAYER;
+	}
+
 	return caveEvent;
 }

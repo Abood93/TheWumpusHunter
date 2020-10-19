@@ -51,7 +51,7 @@ void Cavern::newGame()
 		objectAdded = false;
 		while (!objectAdded)
 		{
-		whichCave = (rand() % 20);
+		whichCave = (rand() % CAVE_COUNT);
 		objectAdded = theWumpusCaves[whichCave].addBat();
 		}
 	}
@@ -60,7 +60,7 @@ void Cavern::newGame()
 		objectAdded = false;
 		while (!objectAdded)
 		{
-			whichCave = (rand() % 20);
+			whichCave = (rand() % CAVE_COUNT);
 			objectAdded = theWumpusCaves[whichCave].addPit();
 		}
 	}
@@ -69,7 +69,7 @@ void Cavern::newGame()
 		objectAdded = false;
 		while (!objectAdded)
 		{
-			whichCave = (rand() % 20);
+			whichCave = (rand() % CAVE_COUNT);
 			objectAdded = theWumpusCaves[whichCave].addWumpus();
 		}
 	}
@@ -82,8 +82,7 @@ void Cavern::playGame()
 	int theCave;
 	int passageList[PASS_PER_CAVE];
 	int choice;
-	int arrowCount = 5;
-
+	int arrowCount = E27_NUMBER_OF_ARROWS;
 		while (playMore)
 		{
 			newGame();
@@ -138,6 +137,8 @@ void Cavern::playGame()
 							//playerAlive = false;
 							//E11_PIT_KILLS_PLAYER
 							//playerAlive = false;
+							passageList[whereIsWumpus()];
+							
 							arrowCount--;
 							if (arrowCount >= 1)
 							{
