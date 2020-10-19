@@ -23,6 +23,15 @@ constexpr int S19_GAME_LOST_WUMPUS = 19;
 constexpr int S20_GAME_LOST_PIT = 20;
 constexpr int S21_BAT_TRANSFERS = 21;
 constexpr int S22_BAT_TRANSFERS_FROM_PIT = 22;
+constexpr int S23_WUMPUS_STAYS_ASLEEP = 23;
+constexpr int S24_ARROW_KILLS_WUMPUS = 24;
+constexpr int S25_ARROW_KILLS_BAT_WUMPUS_MOVES = 25;
+constexpr int S26_ARROW_KILLS_BAT_WUMPUS_STAYS = 26;
+constexpr int S27_ARROW_MISSED = 27;
+constexpr int S28_INTERNAL_ERROR = 28;
+constexpr int S29_WUMPUS_EATS_BAT = 29;
+constexpr int S30_WUMPUS_FALLS = 30;
+constexpr int S31_WUMPUS_MOVED = 31;
 
 
 
@@ -86,7 +95,16 @@ best tutor :) \n",
 	/*S19_GAME_LOST_WUMPUS*/        "Game lost because the Wumpus ate you\n",
 	/*S20_GAME_LOST_PIT*/           "Game lost because you fell in the Pit\n",
 	/*S21_BAT_TRANSFERS*/           "You've been transfered by the Bat to cave: ",
-	/*S22_BAT_TRANSFERS_FROM_PIT*/  "You've been saved from falling the Pit by the Bat"
+	/*S22_BAT_TRANSFERS_FROM_PIT*/  "You've been saved from falling the Pit by the Bat.\n",
+	/*S23_WUMPUS_STAYS_ASLEEP*/     "The Cave was empty and the Wumpus stayed asleep.\n",
+	/*S24_ARROW_KILLS_WUMPUS*/      "Arrow killed the Wumpus and you won the game!\n"
+	/*S25_ARROW_KILLS_BAT_WUMPUS_MOVES*/  "Arrow killed a Bat.\n",
+	/*S26_ARROW_KILLS_BAT_WUMPUS_STAYS*/  "Arrow killed a Bat and the Wumpus stayed asleep.\n",
+	/*S27_ARROW_MISSED*/            "Your Arrow missed.\n",
+	/*S28_INTERNAL_ERROR*/          "Internal error, game terminated.\n",
+	/*S29_WUMPUS_EATS_BAT*/         "The Wumpus moved and ate a Bat.\n",
+	/*S30_WUMPUS_FALLS*/            "The Wumpus fell in a Pit, you won the game!\n",
+	/*S31_WUMPUS_MOVED*/            "The Wumpus moved.\n"
 };
 
 constexpr int C0_NO = 0;

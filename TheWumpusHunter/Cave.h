@@ -26,6 +26,7 @@ public:
 	int  getID();
 	int enterCave(Player&);
 	int shootInCave();
+	int wumpusEntersCave();
 
 private:
 	int passageCount = 0;

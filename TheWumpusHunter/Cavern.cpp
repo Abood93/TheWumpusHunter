@@ -76,6 +76,7 @@ void Cavern::newGame()
 }
 void Cavern::playGame()
 {	
+	ostringstream outText;
 	bool playMore = true;
 	int caveEvent;
 	int newCave;
@@ -83,6 +84,8 @@ void Cavern::playGame()
 	int passageList[PASS_PER_CAVE];
 	int choice;
 	int arrowCount = E27_NUMBER_OF_ARROWS;
+	bool wumpusMoves = false;
+	int wumpusEvent;
 		while (playMore)
 		{
 			newGame();
@@ -90,6 +93,7 @@ void Cavern::playGame()
 				bool wumpusAlive = true;
 				while (playerAlive && wumpusAlive)
 				{
+					checkNearbyCaves();
 					theCave = thePlayer.getID();
 					for (int i = 0; i < PASS_PER_CAVE; i++)
 						passageList[i] = theWumpusCaves[theCave].getPassage(i);
@@ -97,58 +101,117 @@ void Cavern::playGame()
 					choice = thePlayer.chooseAction(); 
 					switch (choice)
 					{
-						case C6_MOVE:
-							newCave = thePlayer.chooseCave(passageList);
-							caveEvent = theWumpusCaves[newCave].enterCave(thePlayer);
-							//start
-							theWumpusCaves[theCave].deletePlayer();
-							if (caveEvent == E9_BAT_MOVES_PLAYER)
+					case C6_MOVE:
+						newCave = thePlayer.chooseCave(passageList);
+						caveEvent = theWumpusCaves[newCave].enterCave(thePlayer);
+						//start
+						theWumpusCaves[theCave].deletePlayer();
+						if (caveEvent == E9_BAT_MOVES_PLAYER)
+						{
+							int whichCave;
+							bool caveFound = false;
+							while (!caveFound)
 							{
-								int whichCave;
-								bool caveFound = false;
-								while (!caveFound)
-								{
-									whichCave = (rand() % CAVE_COUNT);
-									caveFound = theWumpusCaves[whichCave].addBat();
-								}
-								caveEvent = theWumpusCaves[whichCave].enterCave(thePlayer);
+								whichCave = (rand() % CAVE_COUNT);
+								caveFound = theWumpusCaves[whichCave].addBat();
 							}
-							if (caveEvent == E10_WUMPUS_KILLS_PLAYER)
+							caveEvent = theWumpusCaves[whichCave].enterCave(thePlayer);
+						}
+						if (caveEvent == E10_WUMPUS_KILLS_PLAYER)
+						{
+							thePlayer.showText(textMessage[S19_GAME_LOST_WUMPUS]);
+							playerAlive = false;
+						}
+						if (caveEvent == E11_PIT_KILLS_PLAYER)
+						{
+							thePlayer.showText(textMessage[S20_GAME_LOST_PIT]);
+							playerAlive = false;
+						}
+						if (caveEvent == E12_PLAYER_MOVE_COMPLETE)
+						{
+							checkNearbyCaves();
+						}
+						//end
+						break;
+					case C8_SHOOT:
+						newCave = thePlayer.chooseCave(passageList);
+						caveEvent = theWumpusCaves[newCave].shootInCave();
+						switch (caveEvent)
+						{
+						case E13_ARROW_TO_EMPTY_CAVE_AND_WUMPUS_STAYS:
+							thePlayer.showText(textMessage[S23_WUMPUS_STAYS_ASLEEP]);
+							wumpusMoves = false;
+							break;
+						case E14_ARROW_TO_EMPTY_CAVE_AND_WUMPUS_MOVES:
+							wumpusMoves = true;
+							break;
+						case E15_ARROW_KILLS_WUMPUS:
+							thePlayer.showText(textMessage[S24_ARROW_KILLS_WUMPUS]);
+							wumpusMoves = false;
+							wumpusAlive = false;
+							break;
+						case E16_ARROW_KILLS_BAT_AND_WUMPUS_MOVES:
+							thePlayer.showText(textMessage[S25_ARROW_KILLS_BAT_WUMPUS_MOVES]);
+							wumpusMoves = true;
+							break;
+						case E17_ARROW_KILLS_BAT_AND_WUMPUS_STAYS:
+							thePlayer.showText(textMessage[S26_ARROW_KILLS_BAT_WUMPUS_STAYS]);
+							wumpusMoves = false;
+							break;
+						case E2_PLAYER_SHOOTS:
+							thePlayer.showText(textMessage[S27_ARROW_MISSED]);
+							wumpusMoves = false;
+							break;
+						default: 
+							thePlayer.showText(textMessage[S28_INTERNAL_ERROR]);
+							throw RETURN_ERROR;
+						}
+						if (wumpusMoves)
+						{
+							theCave = whereIsWumpus();
+							newCave = theWumpusCaves[theCave].getPassage(rand() % PASS_PER_CAVE);
+							theWumpusCaves[theCave].deleteWumpus();
+							wumpusEvent = theWumpusCaves[newCave].wumpusEntersCave();
+							switch (wumpusEvent)
 							{
+							case E23_WUMPUS_EATS_BAT:
+								thePlayer.showText(textMessage[S29_WUMPUS_EATS_BAT]);
+								theWumpusCaves[newCave].deleteBat();
+								theWumpusCaves[newCave].addWumpus();
+								break;
+							case E24_WUMPUS_FALLS_INTO_PIT:
+								thePlayer.showText(textMessage[S30_WUMPUS_FALLS]);
+								wumpusAlive = false;
+								break;
+							case E22_WUMPUS_KILLS_PLAYER:
 								thePlayer.showText(textMessage[S19_GAME_LOST_WUMPUS]);
 								playerAlive = false;
+								break;
+							case E26_WUMPUS_MOVE_COMPLETE:
+								thePlayer.showText(textMessage[S31_WUMPUS_MOVED]);
+								theWumpusCaves[newCave].addWumpus();
+								break;
+							default:
+								thePlayer.showText(textMessage[S28_INTERNAL_ERROR]);
+								throw RETURN_ERROR;
 							}
-							if (caveEvent == E11_PIT_KILLS_PLAYER)
-							{
-								thePlayer.showText(textMessage[S20_GAME_LOST_PIT]);
-								playerAlive = false;
-							}
-							if (caveEvent == E12_PLAYER_MOVE_COMPLETE)
-							{
-								checkNearbyCaves();
-							}
-							//end
-							break;
-						case C8_SHOOT: 
-							newCave = thePlayer.chooseCave(passageList);
-							cerr << "cave chosen = " << newCave << endl;
-							caveEvent = theWumpusCaves[newCave].shootInCave();
-							//E10_WUMPUS_KILLS_PLAYER
-							//playerAlive = false;
-							//E11_PIT_KILLS_PLAYER
-							//playerAlive = false;
-							passageList[whereIsWumpus()];
-							
+						}
+						if (playerAlive && wumpusAlive)
+						{
 							arrowCount--;
-							if (arrowCount >= 1)
+							if (arrowCount > 0)
 							{
-								thePlayer.showText(textMessage[S17_ARROWS_LEFT]);
-								cout << arrowCount << endl;
+								outText << textMessage[S17_ARROWS_LEFT] << arrowCount << endl;
+								thePlayer.showText(outText);
 							}
 							else
+							{
 								thePlayer.showText(textMessage[S18_GAME_LOST_ARROWS]);
-							cerr << "cave event = " << caveEvent << endl;
-							break;
+								playerAlive = false;
+							}
+						}
+						break;
+						
 						case C4_QUIT:
 							playMore = thePlayer.keepPlaying();
 							if (!playMore)
