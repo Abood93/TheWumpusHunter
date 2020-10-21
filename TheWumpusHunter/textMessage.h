@@ -97,7 +97,7 @@ best tutor :) \n",
 	/*S21_BAT_TRANSFERS*/           "You've been transfered by the Bat to cave: ",
 	/*S22_BAT_TRANSFERS_FROM_PIT*/  "You've been saved from falling the Pit by the Bat.\n",
 	/*S23_WUMPUS_STAYS_ASLEEP*/     "The Cave was empty and the Wumpus stayed asleep.\n",
-	/*S24_ARROW_KILLS_WUMPUS*/      "Arrow killed the Wumpus and you won the game!\n"
+	/*S24_ARROW_KILLS_WUMPUS*/      "Arrow killed the Wumpus and you won the game!\n",
 	/*S25_ARROW_KILLS_BAT_WUMPUS_MOVES*/  "Arrow killed a Bat.\n",
 	/*S26_ARROW_KILLS_BAT_WUMPUS_STAYS*/  "Arrow killed a Bat and the Wumpus stayed asleep.\n",
 	/*S27_ARROW_MISSED*/            "Your Arrow missed.\n",
