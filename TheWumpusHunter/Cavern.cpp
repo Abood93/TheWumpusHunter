@@ -76,7 +76,6 @@ void Cavern::newGame()
 }
 void Cavern::playGame()
 {	
-	ostringstream outText;
 	bool playMore = true;
 	int caveEvent;
 	int newCave;
@@ -93,6 +92,9 @@ void Cavern::playGame()
 				bool wumpusAlive = true;
 				while (playerAlive && wumpusAlive)
 				{
+					ostringstream outText;
+					outText.str("");
+					outText.clear();
 					checkNearbyCaves();
 					theCave = thePlayer.getID();
 					for (int i = 0; i < PASS_PER_CAVE; i++)
@@ -104,7 +106,6 @@ void Cavern::playGame()
 					case C6_MOVE:
 						newCave = thePlayer.chooseCave(passageList);
 						caveEvent = theWumpusCaves[newCave].enterCave(thePlayer);
-						//start
 						theWumpusCaves[theCave].deletePlayer();
 						if (caveEvent == E9_BAT_MOVES_PLAYER)
 						{
@@ -131,7 +132,6 @@ void Cavern::playGame()
 						{
 							checkNearbyCaves();
 						}
-						//end
 						break;
 					case C8_SHOOT:
 						newCave = thePlayer.chooseCave(passageList);
@@ -202,7 +202,7 @@ void Cavern::playGame()
 							if (arrowCount > 0)
 							{
 								outText << textMessage[S17_ARROWS_LEFT] << arrowCount << endl;
-								thePlayer.showText(outText);
+								thePlayer.showText(outText); 
 							}
 							else
 							{

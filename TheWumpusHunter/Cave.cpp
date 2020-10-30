@@ -179,6 +179,7 @@ int Cave::shootInCave()
 		if (chance == 1)
 			caveEvent = E16_ARROW_KILLS_BAT_AND_WUMPUS_MOVES;
 		else
+
 			caveEvent = E17_ARROW_KILLS_BAT_AND_WUMPUS_STAYS;
 	}
 	return caveEvent;

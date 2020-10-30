@@ -1,12 +1,34 @@
 #pragma once
 //#define UNIT_TESTS
+//#define ICOSAHEDRON
+#define DODECAHEDRON
 
+//The dodecahedron
+#ifdef DODECAHEDRON
 constexpr int CAVE_COUNT = 20;
 constexpr int PASS_PER_CAVE = 3;
 constexpr int CAVES[CAVE_COUNT][PASS_PER_CAVE] = { { 1, 4, 7 }, { 0, 2, 9 }, { 1, 3, 11 }, { 2, 4, 13 },{ 0, 3, 5 },
 	{ 4, 6, 14 }, { 5, 7, 16 }, { 0, 6, 8 }, { 7, 9, 17 }, { 1, 8, 10 },
 	{ 9, 11, 18 }, { 2, 10, 12 }, { 11, 13, 19 }, { 3, 12, 14 }, { 5, 13, 15 },
 	{ 14, 16, 19 }, { 6, 15, 17 }, { 8, 16, 18 }, { 10, 17, 19 }, { 12, 15, 18 } };
+#endif
+
+
+
+//The icosahedron
+#ifdef ICOSAHEDRON
+constexpr int CAVE_COUNT = 12;
+constexpr int PASS_PER_CAVE = 5;
+constexpr int CAVES[CAVE_COUNT][PASS_PER_CAVE] = {
+{1, 2, 3, 4, 7},   {0, 2, 4, 8, 11}, {0, 1, 7, 10, 11},
+{0, 4, 5, 6, 7},    {0, 1, 3, 5, 8},	{3, 4, 6, 8, 9},
+{3, 5, 7, 9, 10},    {0, 2, 3, 6, 10},   {1, 4, 5, 9, 11},
+{5, 6, 8, 10, 11},	{2, 6, 7, 9, 11}, {1, 2, 8, 9, 10}
+};
+#endif
+
+
+
 constexpr int RETURN_ERROR = -1;
 constexpr int BAT_COUNT = 2;
 constexpr int PIT_COUNT = 2;
