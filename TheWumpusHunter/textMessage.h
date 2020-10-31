@@ -32,7 +32,7 @@ constexpr int S28_INTERNAL_ERROR = 28;
 constexpr int S29_WUMPUS_EATS_BAT = 29;
 constexpr int S30_WUMPUS_FALLS = 30;
 constexpr int S31_WUMPUS_MOVED = 31;
-
+constexpr int S32_GAME_OVER = 32;
 
 
 const string textMessage[] =
@@ -43,7 +43,7 @@ const string textMessage[] =
 	/*S3_PIT*/		      " * ",
 	/*S4_WUMPUS*/         " W ",
 	/*S5_PLAYER*/		  " P ",
-	/*S6_KEEPPLAYING*/    "Do you want to keep playing? ",
+	/*S6_KEEPPLAYING*/    "Do you want to play again? ",
 	/*S7_INVALID*/        "Not a valid choice. \n",
 	/*S8_CAVENUMBER*/     "You're in cave number: ",
 	/*S9_ADJACENT_CAVES*/ " Adjacent caves are: ",
@@ -84,16 +84,16 @@ If the Wumpus does move to an adjacent cave, there are four possible outcomes.\n
        The player wins the game.\n\
    4 - The wumpus moves to an empty cave.\n\n",
 	/*S12_EASTER_EGG_MESSAGE*/   "This version of The Wumpus Hunter was developed by The Rock, \
-The Hammer and Grand. Copyright 2020.  All rights reserved.\nA big thanks to the Grand for being the \
+The Hammer and Grand.\nCopyright 2020.  All rights reserved. \nA big thanks to the Grand for being the \
 best tutor :) \n", 
-    /*S13_WHICH_CAVE*/              "Which cave?",
+    /*S13_WHICH_CAVE*/              "Which cave? ",
 	/*S14_SNIFF*/		            "I smell a Wumpus!\n",
 	/*S15_FEEL*/                    "I feel a cold draft!\n",
 	/*S16_LISTEN*/                  "I hear a rustling nearby!\n",
 	/*S17_ARROWS_LEFT*/             "The number of arrows left are: ",
-	/*S18_GAME_LOST_ARROWS*/        "Game lost because you consumed all arrows\n",
-	/*S19_GAME_LOST_WUMPUS*/        "Game lost because the Wumpus ate you\n",
-	/*S20_GAME_LOST_PIT*/           "Game lost because you fell in the Pit\n",
+	/*S18_GAME_LOST_ARROWS*/        "Game lost because you consumed all arrows.\n",
+	/*S19_GAME_LOST_WUMPUS*/        "Game lost because the Wumpus ate you.\n",
+	/*S20_GAME_LOST_PIT*/           "Game lost because you fell in the Pit.\n",
 	/*S21_BAT_TRANSFERS*/           "You've been transfered by the Bat to cave: ",
 	/*S22_BAT_TRANSFERS_FROM_PIT*/  "You've been saved from falling the Pit by the Bat.\n",
 	/*S23_WUMPUS_STAYS_ASLEEP*/     "The Cave was empty and the Wumpus stayed asleep.\n",
@@ -104,7 +104,8 @@ best tutor :) \n",
 	/*S28_INTERNAL_ERROR*/          "Internal error, game terminated.\n",
 	/*S29_WUMPUS_EATS_BAT*/         "The Wumpus moved and ate a Bat.\n",
 	/*S30_WUMPUS_FALLS*/            "The Wumpus fell in a Pit, you won the game!\n",
-	/*S31_WUMPUS_MOVED*/            "The Wumpus moved.\n"
+	/*S31_WUMPUS_MOVED*/            "The Wumpus moved.\n",
+	/*S32_GAME_OVER*/               "GAME OVER!\n\n\n\n"
 };
 
 constexpr int C0_NO = 0;

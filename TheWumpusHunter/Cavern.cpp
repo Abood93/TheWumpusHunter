@@ -207,15 +207,13 @@ void Cavern::playGame()
 							else
 							{
 								thePlayer.showText(textMessage[S18_GAME_LOST_ARROWS]);
-								playerAlive = false;
+						    	playerAlive = false;
 							}
 						}
 						break;
 						
 						case C4_QUIT:
-							playMore = thePlayer.keepPlaying();
-							if (!playMore)
-								wumpusAlive = false;
+							playerAlive = false;
 							break;
 						case C10_HELP:
 							thePlayer.showText(textMessage[S11_SHOW_HELP]);
@@ -228,6 +226,8 @@ void Cavern::playGame()
 							break;
 					}
 				}
+				thePlayer.showText(textMessage[S32_GAME_OVER]);
+				playMore = thePlayer.keepPlaying();
 		}
 }
 
