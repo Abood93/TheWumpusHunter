@@ -6,10 +6,7 @@ Problem:  passageCount in the Cave.h file is public.  It should be private.
 Solution:  passageCount moved to the private section of Cave definition.
 //End Sample//
 
-//Problem 5//
-Number: 5  Date:  October 7, 2020  Opened by:  Grand
-Problem:  The Easter Egg needs to be fixed with newlines (\n) so it wraps at the right places.
-//Ebd Problem 5//
+
 
 
 
