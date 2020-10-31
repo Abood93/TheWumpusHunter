@@ -6,27 +6,7 @@ Problem:  passageCount in the Cave.h file is public.  It should be private.
 Solution:  passageCount moved to the private section of Cave definition.
 //End Sample//
 
-//Problem 5//
-Number: 5  Date:  October 7, 2020  Opened by:  Grand
-Problem:  The Easter Egg needs to be fixed with newlines (\n) so it wraps at the right places.
-//Ebd Problem 5//
 
-//Problem 6//
-Number: 6 Date: October 22, 2020.  Opened by:  Grand
-Problem:  If the player shoots, the message about arrows left accumulates previous messages about arrows left.
-//End Problem 6//
 
-//Problem 7//
-Number: 7 Date: October 22, 2020.  Opened by:  Grand
-When the player moves, the warnings about things in adjacent caves gets listed twice.
-//End Problem 7//
 
-//Problem 8//
-Number: 8 Date: October 22, 2020.  Opend by: Grand
-When the player runs out of arrows, the user shouldn't be shown warnings about adjacent caves.
-//End Problem 8//
 
-//Problem 9//
-Number: 9 Date: October 22, 2020.  Opened by: Grand
-The Wumpus moved from cave 13 to cave 7 - they're not connected.
-//End Problem 9//
