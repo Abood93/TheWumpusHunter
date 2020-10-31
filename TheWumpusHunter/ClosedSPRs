@@ -38,7 +38,7 @@ solution udpate: adding an if (choice == 0 && inText[0] != '0') statement and a 
 Number: 5  Date:  October 7, 2020  Opened by:  Grand
 Problem:  The Easter Egg needs to be fixed with newlines (\n) so it wraps at the right places.
 Solution: reformatted.
-//Ebd Problem 5//
+//End Problem 5//
 
 
 //Problem 6//
