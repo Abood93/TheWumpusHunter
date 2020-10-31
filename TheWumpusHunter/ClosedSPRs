@@ -33,17 +33,12 @@ That doesn't fix the problem.  Did you test your fix?  If the player enters "xy"
 solution udpate: adding an if (choice == 0 && inText[0] != '0') statement and a return value of false.
 //end of problem 4//
 
-//Problem 8//
-Number: 8 Date: October 22, 2020.  Opend by: Grand
-When the player runs out of arrows, the user shouldn't be shown warnings about adjacent caves.
-solution: New game started without ending the old game. 
-//End Problem 8//
 
-//Problem 9//
-Number: 9 Date: October 22, 2020.  Opened by: Grand
-The Wumpus moved from cave 13 to cave 7 - they're not connected.
-solution: Probably a side effect of problem 8.
-//End Problem 9//
+//Problem 5//
+Number: 5  Date:  October 7, 2020  Opened by:  Grand
+Problem:  The Easter Egg needs to be fixed with newlines (\n) so it wraps at the right places.
+Solution: reformatted.
+//Ebd Problem 5//
 
 
 //Problem 6//
@@ -59,3 +54,19 @@ Number: 7 Date: October 22, 2020.  Opened by:  Grand
 When the player moves, the warnings about things in adjacent caves gets listed twice.
 Solution: cleared ostringstream history.
 //End Problem 7//
+
+
+//Problem 8//
+Number: 8 Date: October 22, 2020.  Opend by: Grand
+When the player runs out of arrows, the user shouldn't be shown warnings about adjacent caves.
+solution: New game started without ending the old game. 
+//End Problem 8//
+
+
+//Problem 9//
+Number: 9 Date: October 22, 2020.  Opened by: Grand
+The Wumpus moved from cave 13 to cave 7 - they're not connected.
+solution: Probably a side effect of problem 8.
+//End Problem 9//
+
+
