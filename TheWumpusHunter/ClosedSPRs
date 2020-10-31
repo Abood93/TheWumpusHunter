@@ -44,3 +44,18 @@ Number: 9 Date: October 22, 2020.  Opened by: Grand
 The Wumpus moved from cave 13 to cave 7 - they're not connected.
 solution: Probably a side effect of problem 8.
 //End Problem 9//
+
+
+//Problem 6//
+Number: 6 Date: October 22, 2020.  Opened by:  Grand
+Problem:  If the player shoots, the message about arrows left accumulates previous messages about arrows left.
+Solution: cleared ostringstream history.
+//End Problem 6//
+
+
+
+//Problem 7//
+Number: 7 Date: October 22, 2020.  Opened by:  Grand
+When the player moves, the warnings about things in adjacent caves gets listed twice.
+Solution: cleared ostringstream history.
+//End Problem 7//
