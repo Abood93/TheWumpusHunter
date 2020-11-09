@@ -222,8 +222,23 @@ void Player::showText(int msgCode)
         showText(textMessage[S28_INTERNAL_ERROR]);
         throw S28_INTERNAL_ERROR; //I corrected this from "throw 28;"
         break;
+    case S14_SNIFF:
+        showText(textMessage[S14_SNIFF]);
+        break;
     default:
         showText(textMessage[S32_GAME_OVER]);
+        break;
+    }
+}
+
+void showText(int msgCode, const MsgData& msgParameters)
+{
+    ostringstream outText;
+    switch (msgCode)
+    {
+    case S17_ARROWS_LEFT:
+        outText << textMessage[S17_ARROWS_LEFT] << msgParameters.arrows << endl;
+        showText(outText);
         break;
     }
 }

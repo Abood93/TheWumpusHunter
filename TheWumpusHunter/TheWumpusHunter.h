@@ -62,3 +62,13 @@ constexpr int E25_WUMPUS_STAYS_ASLEEP = 25;
 constexpr int E26_WUMPUS_MOVE_COMPLETE = 26;
 constexpr int E27_NUMBER_OF_ARROWS = 1;
 
+struct MsgData
+{
+	int thisCave;
+	int cavePassages[PASS_PER_CAVE];
+	bool player;
+	bool wumpus;
+	bool bat;
+	bool pit;
+	int arrows;
+};

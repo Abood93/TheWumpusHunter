@@ -291,7 +291,7 @@ bool Cavern::checkNearbyCaves()
 	if (sniff() == true)
 	{
 		cenario = true;
-		thePlayer.showText(textMessage[S14_SNIFF]);
+		thePlayer.showText(S14_SNIFF);
 	}
 	if (feel() == true)
 	{
