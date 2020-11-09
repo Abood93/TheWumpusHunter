@@ -120,12 +120,12 @@ void Cavern::playGame()
 						}
 						if (caveEvent == E10_WUMPUS_KILLS_PLAYER)
 						{
-							thePlayer.showText(textMessage[S19_GAME_LOST_WUMPUS]);
+							thePlayer.showText(E10_WUMPUS_KILLS_PLAYER);
 							playerAlive = false;
 						}
 						if (caveEvent == E11_PIT_KILLS_PLAYER)
 						{
-							thePlayer.showText(textMessage[S20_GAME_LOST_PIT]);
+							thePlayer.showText(E11_PIT_KILLS_PLAYER);
 							playerAlive = false;
 						}
 						if (caveEvent == E12_PLAYER_MOVE_COMPLETE)
@@ -139,31 +139,31 @@ void Cavern::playGame()
 						switch (caveEvent)
 						{
 						case E13_ARROW_TO_EMPTY_CAVE_AND_WUMPUS_STAYS:
-							thePlayer.showText(textMessage[S23_WUMPUS_STAYS_ASLEEP]);
+							thePlayer.showText(E13_ARROW_TO_EMPTY_CAVE_AND_WUMPUS_STAYS);
 							wumpusMoves = false;
 							break;
 						case E14_ARROW_TO_EMPTY_CAVE_AND_WUMPUS_MOVES:
 							wumpusMoves = true;
 							break;
 						case E15_ARROW_KILLS_WUMPUS:
-							thePlayer.showText(textMessage[S24_ARROW_KILLS_WUMPUS]);
+							thePlayer.showText(E15_ARROW_KILLS_WUMPUS);
 							wumpusMoves = false;
 							wumpusAlive = false;
 							break;
 						case E16_ARROW_KILLS_BAT_AND_WUMPUS_MOVES:
-							thePlayer.showText(textMessage[S25_ARROW_KILLS_BAT_WUMPUS_MOVES]);
+							thePlayer.showText(E16_ARROW_KILLS_BAT_AND_WUMPUS_MOVES);
 							wumpusMoves = true;
 							break;
 						case E17_ARROW_KILLS_BAT_AND_WUMPUS_STAYS:
-							thePlayer.showText(textMessage[S26_ARROW_KILLS_BAT_WUMPUS_STAYS]);
+							thePlayer.showText(E17_ARROW_KILLS_BAT_AND_WUMPUS_STAYS);
 							wumpusMoves = false;
 							break;
 						case E2_PLAYER_SHOOTS:
-							thePlayer.showText(textMessage[S27_ARROW_MISSED]);
+							thePlayer.showText(E2_PLAYER_SHOOTS);
 							wumpusMoves = false;
 							break;
 						default: 
-							thePlayer.showText(textMessage[S28_INTERNAL_ERROR]);
+							thePlayer.showText(S28_INTERNAL_ERROR);
 							throw RETURN_ERROR;
 						}
 						if (wumpusMoves)
@@ -175,20 +175,20 @@ void Cavern::playGame()
 							switch (wumpusEvent)
 							{
 							case E23_WUMPUS_EATS_BAT:
-								thePlayer.showText(textMessage[S29_WUMPUS_EATS_BAT]);
+								thePlayer.showText(E23_WUMPUS_EATS_BAT);
 								theWumpusCaves[newCave].deleteBat();
 								theWumpusCaves[newCave].addWumpus();
 								break;
 							case E24_WUMPUS_FALLS_INTO_PIT:
-								thePlayer.showText(textMessage[S30_WUMPUS_FALLS]);
+								thePlayer.showText(E24_WUMPUS_FALLS_INTO_PIT);
 								wumpusAlive = false;
 								break;
 							case E22_WUMPUS_KILLS_PLAYER:
-								thePlayer.showText(textMessage[S19_GAME_LOST_WUMPUS]);
+								thePlayer.showText(E22_WUMPUS_KILLS_PLAYER);
 								playerAlive = false;
 								break;
 							case E26_WUMPUS_MOVE_COMPLETE:
-								thePlayer.showText(textMessage[S31_WUMPUS_MOVED]);
+								thePlayer.showText(E26_WUMPUS_MOVE_COMPLETE);
 								theWumpusCaves[newCave].addWumpus();
 								break;
 							default:
@@ -206,7 +206,7 @@ void Cavern::playGame()
 							}
 							else
 							{
-								thePlayer.showText(textMessage[S18_GAME_LOST_ARROWS]);
+								thePlayer.showText(S18_GAME_LOST_ARROWS);
 						    	playerAlive = false;
 							}
 						}
@@ -215,18 +215,18 @@ void Cavern::playGame()
 						case C4_QUIT:
 							playerAlive = false;
 							break;
-						case C10_HELP:
-							thePlayer.showText(textMessage[S11_SHOW_HELP]);
+						case C10_HELP://Problem
+							thePlayer.showText(S11_SHOW_HELP);
 							break;
 						case C13_PRINTCAVERN:
 							printCavern();
 							break;
 						case C14_EASTEREGG:
-							thePlayer.showText(textMessage[S12_EASTER_EGG_MESSAGE]);
+							thePlayer.showText(C14_EASTEREGG);
 							break;
 					}
 				}
-				thePlayer.showText(textMessage[S32_GAME_OVER]);
+				thePlayer.showText(S32_GAME_OVER);
 				playMore = thePlayer.keepPlaying();
 		}
 }
