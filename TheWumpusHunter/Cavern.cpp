@@ -85,6 +85,7 @@ void Cavern::playGame()
 	int arrowCount = E27_NUMBER_OF_ARROWS;
 	bool wumpusMoves = false;
 	int wumpusEvent;
+	MsgData msgParameters;
 		while (playMore)
 		{
 			newGame();
@@ -201,8 +202,8 @@ void Cavern::playGame()
 							arrowCount--;
 							if (arrowCount > 0)
 							{
-								outText << textMessage[S17_ARROWS_LEFT] << arrowCount << endl;
-								thePlayer.showText(outText); 
+								msgParameters.arrows = arrowCount;
+								thePlayer.showText(S17_ARROWS_LEFT, msgParameters);
 							}
 							else
 							{
