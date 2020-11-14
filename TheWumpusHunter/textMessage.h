@@ -36,7 +36,6 @@ constexpr int S32_GAME_OVER = 32;
 
 
 const string textMessage[] =
-
 {
 	/*S0_CAVENUM*/	      "Cave number: ",
 	/*S1_ADJCAVE*/	      " is connected to the following caves: ",

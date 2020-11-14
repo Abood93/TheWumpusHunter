@@ -16,7 +16,7 @@ public:
 	 int chooseAction();
 	 int chooseCave(int[]);
 	 void showText(int);
-	 void showText(int, const MsgData&);
+	 //void showText(int, const MsgData&);
 private:
 	int inCave; 
 };

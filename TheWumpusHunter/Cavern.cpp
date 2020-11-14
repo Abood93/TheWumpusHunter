@@ -18,9 +18,14 @@ void Cavern::printCavern()
 	int i, j;  
 	for (i = 0; i < CAVE_COUNT; i++)
 	{
-		outText<< textMessage[S0_CAVENUM] << i << textMessage[S1_ADJCAVE];
-		for (j = 0; j < theWumpusCaves[i].getPassageCount(); j++) 
-			outText << " " << theWumpusCaves[i].getPassage(j);
+		outText << textMessage[S0_CAVENUM];
+		outText.width(2);
+		outText<< i << textMessage[S1_ADJCAVE];
+		for (j = 0; j < theWumpusCaves[i].getPassageCount(); j++)
+		{
+			outText.width(3);
+			outText << theWumpusCaves[i].getPassage(j);
+		}
 		outText << ".";
 		if (theWumpusCaves[i].hasBat())
 			outText << textMessage[S2_BAT];
@@ -82,7 +87,7 @@ void Cavern::playGame()
 	int theCave;
 	int passageList[PASS_PER_CAVE];
 	int choice;
-	int arrowCount = E27_NUMBER_OF_ARROWS;
+	int arrowCount = E28_NUMBER_OF_ARROWS;
 	bool wumpusMoves = false;
 	int wumpusEvent;
 	MsgData msgParameters;
@@ -175,21 +180,21 @@ void Cavern::playGame()
 							wumpusEvent = theWumpusCaves[newCave].wumpusEntersCave();
 							switch (wumpusEvent)
 							{
-							case E23_WUMPUS_EATS_BAT:
-								thePlayer.showText(E23_WUMPUS_EATS_BAT);
+							case E22_WUMPUS_EATS_BAT:
+								thePlayer.showText(E22_WUMPUS_EATS_BAT);
 								theWumpusCaves[newCave].deleteBat();
 								theWumpusCaves[newCave].addWumpus();
 								break;
-							case E24_WUMPUS_FALLS_INTO_PIT:
-								thePlayer.showText(E24_WUMPUS_FALLS_INTO_PIT);
+							case E23_WUMPUS_FALLS_INTO_PIT:
+								thePlayer.showText(E23_WUMPUS_FALLS_INTO_PIT);
 								wumpusAlive = false;
 								break;
-							case E22_WUMPUS_KILLS_PLAYER:
-								thePlayer.showText(E22_WUMPUS_KILLS_PLAYER);
+							case E10_WUMPUS_KILLS_PLAYER:
+								thePlayer.showText(E10_WUMPUS_KILLS_PLAYER);
 								playerAlive = false;
 								break;
-							case E26_WUMPUS_MOVE_COMPLETE:
-								thePlayer.showText(E26_WUMPUS_MOVE_COMPLETE);
+							case E25_WUMPUS_MOVE_COMPLETE:
+								thePlayer.showText(E25_WUMPUS_MOVE_COMPLETE);
 								theWumpusCaves[newCave].addWumpus();
 								break;
 							default:
@@ -203,7 +208,7 @@ void Cavern::playGame()
 							if (arrowCount > 0)
 							{
 								msgParameters.arrows = arrowCount;
-								thePlayer.showText(S17_ARROWS_LEFT, msgParameters);
+								//thePlayer.showText(S17_ARROWS_LEFT, msgParameters);
 							}
 							else
 							{
@@ -217,13 +222,14 @@ void Cavern::playGame()
 							playerAlive = false;
 							break;
 						case C10_HELP://Problem
-							thePlayer.showText(S11_SHOW_HELP);
+							thePlayer.showText(E26_HELP);
 							break;
 						case C13_PRINTCAVERN:
 							printCavern();
 							break;
 						case C14_EASTEREGG:
-							thePlayer.showText(C14_EASTEREGG);
+							caveEvent = E27_EASTEREGG;
+							thePlayer.showText(S12_EASTER_EGG_MESSAGE);
 							break;
 					}
 				}

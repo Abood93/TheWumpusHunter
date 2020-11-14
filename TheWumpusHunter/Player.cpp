@@ -197,30 +197,27 @@ void Player::showText(int msgCode)
     case E2_PLAYER_SHOOTS:
         showText(textMessage[S27_ARROW_MISSED]);
         break;
-    case E23_WUMPUS_EATS_BAT:
+    case E22_WUMPUS_EATS_BAT:
         showText(textMessage[S29_WUMPUS_EATS_BAT]);
         break;
-    case E24_WUMPUS_FALLS_INTO_PIT:
+    case E23_WUMPUS_FALLS_INTO_PIT:
         showText(textMessage[S30_WUMPUS_FALLS]);
         break;
-    case E22_WUMPUS_KILLS_PLAYER:
-        showText(textMessage[S19_GAME_LOST_WUMPUS]);
-        break;
-    case E26_WUMPUS_MOVE_COMPLETE:
+    case E25_WUMPUS_MOVE_COMPLETE:
         showText(textMessage[S31_WUMPUS_MOVED]);
         break;
     case S18_GAME_LOST_ARROWS:
         showText(textMessage[S18_GAME_LOST_ARROWS]);
         break;
-    case C10_HELP: //Problem
+    case E26_HELP:
         showText(textMessage[S11_SHOW_HELP]);
         break;
-    case C14_EASTEREGG:
+    case E27_EASTEREGG:
         showText(textMessage[S12_EASTER_EGG_MESSAGE]);
         break;
     case S28_INTERNAL_ERROR:
         showText(textMessage[S28_INTERNAL_ERROR]);
-        throw S28_INTERNAL_ERROR; //I corrected this from "throw 28;"
+        throw S28_INTERNAL_ERROR; 
         break;
     case S14_SNIFF:
         showText(textMessage[S14_SNIFF]);
@@ -231,7 +228,7 @@ void Player::showText(int msgCode)
     }
 }
 
-void showText(int msgCode, const MsgData& msgParameters)
+/*void Player::showText(int msgCode, const MsgData& msgParameters)
 {
     ostringstream outText;
     switch (msgCode)
@@ -242,3 +239,4 @@ void showText(int msgCode, const MsgData& msgParameters)
         break;
     }
 }
+*/

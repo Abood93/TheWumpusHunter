@@ -186,14 +186,14 @@ int Cave::shootInCave()
 }
 int Cave::wumpusEntersCave()
 {
-	int wumpusEvent = E26_WUMPUS_MOVE_COMPLETE;
+	int wumpusEvent = E25_WUMPUS_MOVE_COMPLETE;
 
 	if (hasBat())
 		if (rand() % 2 == 0)
-			wumpusEvent = E23_WUMPUS_EATS_BAT;
+			wumpusEvent = E22_WUMPUS_EATS_BAT;
 	if (hasPit())
-		wumpusEvent = E24_WUMPUS_FALLS_INTO_PIT;
+		wumpusEvent = E23_WUMPUS_FALLS_INTO_PIT;
 	if (hasPlayer())
-		wumpusEvent = E22_WUMPUS_KILLS_PLAYER;
+		wumpusEvent = E10_WUMPUS_KILLS_PLAYER;
 	return wumpusEvent;
 }
